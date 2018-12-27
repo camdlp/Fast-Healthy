@@ -9,6 +9,20 @@ and open the template in the editor.
 */
 
 .navbar-material .nav-wrapper .brand-logo img {
-  height: 54px;
+    height: 54px;
 }
 
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#emailSideBar, #nickSideBar, #imgSideBar{
+    border-radius: 5px;
+    background: white;
+    padding: 4px;
+    margin: 4px;
+    font-size: 14px;
+}
