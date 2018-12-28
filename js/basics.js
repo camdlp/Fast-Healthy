@@ -6,7 +6,20 @@
 
 
 
+/*
+ * Activo el navbar de materialize
+ */
 
-  $(document).ready(function(){
+$(document).ready(function () {
     $('.sidenav').sidenav();
-  });
+});
+
+/*
+ * Onclicks
+ */
+
+$('.menu').click(function () {
+    $('#contenido').load('menu.php');
+    $('.sidenav').sidenav('close');
+});
+

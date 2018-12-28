@@ -7,16 +7,40 @@ and open the template in the editor.
     Created on : 26-dic-2018, 17:10:35
     Author     : carlo
 */
+/*
+COLORES ICONO
+verde claro: #88BF57;
+verde oscuro: #426B1C;
+amarillo: #FBD48F;
+rojo: #D13832;
+rojo-claro: #EF3F30;
+marron: #A46F3E;
+*/
+
+@font-face{
+    font-family: "MadeleinaSans";
+    src: url("../fonts/Madeleina Sans.otf") format("opentype");
+}
+
+@font-face{
+    font-family: "CQMono";
+    src: url("../fonts/CQ Mono.otf") format("opentype");
+}
 
 .navbar-material .nav-wrapper .brand-logo img {
     height: 54px;
 }
 
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+#contenido{
+    margin-bottom: 20%;
+}
+
+.pie {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:30px;
+    color: lightgray;
 }
 
 #emailSideBar, #nickSideBar, #imgSideBar{
@@ -26,3 +50,37 @@ footer {
     margin: 4px;
     font-size: 14px;
 }
+
+.contenedorMenu{
+    height: 2000px;
+    width: 100%;
+}
+
+/*footer*/
+.foot{    
+    position: fixed;
+    left: 0;
+    bottom: 0;    
+    width: 100%;
+    height: 70px;
+    background-color: #426B1C;
+}
+
+/*footer*/
+
+/*social*/
+    
+.social a{
+    font-size: 1.5em;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin: 0;
+    color: white;
+}
+
+.social a:hover{
+    -webkit-transition: font-size .25s ease-in-out;
+    color: #D13832;
+    font-size: 2em;
+}
+/*social*/

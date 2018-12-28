@@ -8,13 +8,14 @@ Menu: #64DD17  light-green accent-4
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link href="css/materialize.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/basics.css" rel="stylesheet" type="text/css"/>
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">        
 
         <title>Fast n' Healthy</title>
 
@@ -28,10 +29,11 @@ Menu: #64DD17  light-green accent-4
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">                    
                     <li><a href=""><i class="material-icons">account_circle</i>Cuenta</a></li>
-                    <li><a href=""><i class="material-icons">restaurant_menu</i>Menú</a></li>
+                    <li><a class="menu"><i class="material-icons">restaurant_menu</i>Menú</a></li>
                     <li><a href=""><i class="material-icons">shopping_cart</i>Cesta</a></li>
                 </ul>
             </div>
+
 
 
         </nav>
@@ -48,7 +50,7 @@ Menu: #64DD17  light-green accent-4
                 </div>
             </li>          
             <li><a href=""><i class="material-icons">account_circle</i>Cuenta</a></li>
-            <li><a href=""><i class="material-icons">restaurant_menu</i>Menú</a></li>
+            <li><a class="menu"><i class="material-icons">restaurant_menu</i>Menú</a></li>
             <li><a href=""><i class="material-icons">shopping_cart</i>Cesta</a></li>
         </ul>
         <!-- NAVBAR -->
@@ -60,25 +62,37 @@ Menu: #64DD17  light-green accent-4
                 This is an example quotation that uses the blockquote tag.
             </blockquote>
         </div>
-        <!-- CONTENIDO -->
+        <!-- CONTENIDO -->        
 
         <!-- FOOTER -->
-        <footer class="page-footer red accent-2">
-            <div class="footer-copyright">
-                <div class="container">
-                    © 2019 Copyright Fast n' Healthy
-                    <a class="grey-text text-lighten-4 right" href="#!">Sobre nosotros</a>
+        <footer class="center foot">
+            <!-- REDES -->
+            <div class="container social">
+                <div class="row">
+
+                    <div class="col s12 center">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
+            <!-- REDES -->
+
+            <p class="white-text">Fast n' Healthy© 2018</p>
         </footer>
         <!-- FOOTER -->
-        <?php
-        // put your code here
-        ?>
+
+
+
 
         <!--JavaScript at end of body for optimized loading-->
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <script src="js/materialize.min.js" type="text/javascript"></script>
+        <script src="js/materialize.js" type="text/javascript"></script>
         <script src="js/basics.js" type="text/javascript"></script>
+        <script src="js/init.js" type="text/javascript"></script>
+
     </body>
 </html>
