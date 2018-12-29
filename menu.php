@@ -10,39 +10,34 @@ and open the template in the editor.
         <title>Menú</title>
     </head>
     <body>
-        <div id="primeros" class="block blue">
-            <nav class="" data-target="primeros">
-                <div class="nav-wrapper light-blue">
-                    <div class="container">
-                        <a href="#" class="brand-logo">Primeros</a>                        
-                    </div>
-                </div>
-            </nav>
-            <div class="container contenedorMenu block">
-                
+        <!-- TABS DEL MENÚ --> 
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a href="#primeros">Primeros</a></li>
+                    <li class="tab col s3"><a class="active" href="#segundos">Segundos</a></li>                    
+                    <li class="tab col s3"><a href="#terceros">Terceros</a></li>
+                </ul>
             </div>
-        </div>
+            <!-- PRIMEROS -->
+            <div id="primeros" class="col s12">
 
-        <div id="segundos" class="block red lighten-1">
-            <nav class="" data-target="segundos">
-                <div class="nav-wrapper red">
-                    <div class="container">
-                        <a href="#" class="brand-logo">Segundos</a>                               
-                    </div>
-                </div>
-            </nav>
-        </div>
+            </div>
+            <!-- END PRIMEROS -->
 
-        <div id="postres" class="block green lighten-1">
-            <nav class="" data-target="postres">
-                <div class="nav-wrapper green">
-                    <div class="container">
-                        <a href="#" class="brand-logo">Postres</a>                        
-                    </div>
-                </div>
-            </nav>
-        </div>
+            <!-- SEGUNDOS -->
+            <div id="segundos" class="col s12">
 
+            </div>
+            <!-- END SEGUNDOS -->
+
+            <!-- TERCEROS -->
+            <div id="terceros" class="col s12">
+
+            </div>
+            <!-- END TERCEROS -->
+        </div>
+        <!-- END TABS DEL MENÚ -->
 
 
     </body>

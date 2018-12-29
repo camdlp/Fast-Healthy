@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <!--
-Colores
-Header y Footer: #FF1744 red accent-3
-Menu: #64DD17  light-green accent-4
-
+Página web TFG Carlos Abia. Universidad Francisco de Vitoria 2019.
+Modelo seguido: https://magoz.is/
 -->
 <html>
     <head>
@@ -23,14 +21,14 @@ Menu: #64DD17  light-green accent-4
     <body>
 
         <!-- NAVBAR -->
-        <nav class="navbar-material red accent-2">
+        <nav class="navbar-material white no-shadows">
             <div class="nav-wrapper">
-                <a href="index.php" class="brand-logo center"><img class="responsive-img" id="logo" src="img/icon-color.png"/></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="index.php" class="brand-logo left"><img class="responsive-img" id="logo" style="margin: 10%;" src="img/icon-color.png"/></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons red-text">menu</i></a>
                 <ul class="right hide-on-med-and-down">                    
-                    <li><a href=""><i class="material-icons">account_circle</i>Cuenta</a></li>
-                    <li><a class="menu"><i class="material-icons">restaurant_menu</i>Menú</a></li>
-                    <li><a href=""><i class="material-icons">shopping_cart</i>Cesta</a></li>
+                    <li><a href="#"><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
+                    <li><a class="menu"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
+                    <li><a href="#"><i class="material-icons red-text">shopping_cart</i>Cesta</a></li>
                 </ul>
             </div>
 
@@ -49,20 +47,64 @@ Menu: #64DD17  light-green accent-4
                     <a href="#email"><span class="grey-text" id="emailSideBar">Registrarse</span></a>
                 </div>
             </li>          
-            <li><a href=""><i class="material-icons">account_circle</i>Cuenta</a></li>
-            <li><a class="menu"><i class="material-icons">restaurant_menu</i>Menú</a></li>
-            <li><a href=""><i class="material-icons">shopping_cart</i>Cesta</a></li>
+            <li><a href=""><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
+            <li><a class="menu"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
+            <li><a href=""><i class="material-icons red-text">shopping_cart</i>Cesta</a></li>
         </ul>
-        <!-- NAVBAR -->
+        <!-- END NAVBAR -->
 
 
         <!-- CONTENIDO -->
         <div id="contenido">
             <blockquote>
                 This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
+            </blockquote><blockquote>
+                This is an example quotation that uses the blockquote tag.
             </blockquote>
         </div>
-        <!-- CONTENIDO -->        
+        <!-- END CONTENIDO -->        
 
         <!-- FOOTER -->
         <footer class="center foot">
@@ -79,20 +121,20 @@ Menu: #64DD17  light-green accent-4
                     </div>
                 </div>
             </div>
-            <!-- REDES -->
-
-            <p class="white-text">Fast n' Healthy© 2018</p>
+            <!-- END REDES -->
+            <p style="color: #88BF57;">Fast n' Healthy© 2018</p>
         </footer>
-        <!-- FOOTER -->
+        <!-- END FOOTER -->
 
 
 
 
-        <!--JavaScript at end of body for optimized loading-->
+        <!-- CARGA DE JAVASCRIPTS -->
         <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
         <script src="js/materialize.js" type="text/javascript"></script>
         <script src="js/basics.js" type="text/javascript"></script>
         <script src="js/init.js" type="text/javascript"></script>
+        <!-- END CARGA DE JAVASCRIPTS -->
 
     </body>
 </html>

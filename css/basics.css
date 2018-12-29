@@ -30,9 +30,18 @@ marron: #A46F3E;
 .navbar-material .nav-wrapper .brand-logo img {
     height: 54px;
 }
+/*Elimina la sombra*/
+.no-shadows {
+    box-shadow: none!important;
+}
 
+body{
+    height: 100%;
+    min-height: 100%;
+}
 #contenido{
-    margin-bottom: 20%;
+     
+    
 }
 
 .pie {
@@ -58,12 +67,10 @@ marron: #A46F3E;
 
 /*footer*/
 .foot{    
-    position: fixed;
-    left: 0;
-    bottom: 0;    
-    width: 100%;
-    height: 70px;
-    background-color: #426B1C;
+    position:relative;
+    bottom:0;
+    width:100%;
+    height:70px;  
 }
 
 /*footer*/
@@ -75,12 +82,12 @@ marron: #A46F3E;
     padding-right: 1rem;
     padding-left: 1rem;
     margin: 0;
-    color: white;
+    color: #88BF57;
 }
 
 .social a:hover{
     -webkit-transition: font-size .25s ease-in-out;
     color: #D13832;
-    font-size: 2em;
+    font-size: 2.5em;
 }
 /*social*/

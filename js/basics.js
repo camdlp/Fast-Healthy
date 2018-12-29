@@ -7,19 +7,27 @@
 
 
 /*
- * Activo el navbar de materialize
+ * Inicializaciones materialize
  */
 
 $(document).ready(function () {
     $('.sidenav').sidenav();
 });
 
+
+
 /*
  * Onclicks
  */
 
+
 $('.menu').click(function () {
     $('#contenido').load('menu.php');
     $('.sidenav').sidenav('close');
+
+    //Incializo los tabs de materialize
+    $(document).ready(function () {
+        $('.tabs').tabs();
+    });
 });
 
