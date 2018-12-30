@@ -10,24 +10,17 @@
  * Inicializaciones materialize
  */
 
-$(document).ready(function () {
+//$(document).ready(function () {
+//    $('.sidenav').sidenav();
+//});
+$(document).ready(function(){
     $('.sidenav').sidenav();
-});
+    $('.tabs').tabs();
+  });
 
 
 
 /*
  * Onclicks
  */
-
-
-$('.menu').click(function () {
-    $('#contenido').load('menu.php');
-    $('.sidenav').sidenav('close');
-
-    //Incializo los tabs de materialize
-    $(document).ready(function () {
-        $('.tabs').tabs();
-    });
-});
 

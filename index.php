@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-Página web TFG Carlos Abia. Universidad Francisco de Vitoria 2019.
+TFG Carlos Abia. Universidad Francisco de Vitoria 2019.
 Modelo seguido: https://magoz.is/
 -->
 <html>
@@ -15,7 +15,7 @@ Modelo seguido: https://magoz.is/
         <link href="css/basics.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">        
 
-        <title>Fast n' Healthy</title>
+        <title>Fast & Healthy®</title>
 
     </head>
     <body>
@@ -27,7 +27,7 @@ Modelo seguido: https://magoz.is/
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons red-text">menu</i></a>
                 <ul class="right hide-on-med-and-down">                    
                     <li><a href="#"><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
-                    <li><a class="menu"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
+                    <li><a class="menu" href="menu.php"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
                     <li><a href="#"><i class="material-icons red-text">shopping_cart</i>Cesta</a></li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@ Modelo seguido: https://magoz.is/
                 </div>
             </li>          
             <li><a href=""><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
-            <li><a class="menu"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
+            <li><a class="menu" href="menu.php"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
             <li><a href=""><i class="material-icons red-text">shopping_cart</i>Cesta</a></li>
         </ul>
         <!-- END NAVBAR -->
@@ -56,53 +56,8 @@ Modelo seguido: https://magoz.is/
 
         <!-- CONTENIDO -->
         <div id="contenido">
-            <blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote><blockquote>
-                This is an example quotation that uses the blockquote tag.
-            </blockquote>
+            
+            <br><br><a href="loginDesign.php">Login</a>
         </div>
         <!-- END CONTENIDO -->        
 
@@ -122,7 +77,7 @@ Modelo seguido: https://magoz.is/
                 </div>
             </div>
             <!-- END REDES -->
-            <p style="color: #88BF57;">Fast n' Healthy© 2018</p>
+            <p style="color: #88BF57;">Fast & Healthy® 2018</p>
         </footer>
         <!-- END FOOTER -->
 
