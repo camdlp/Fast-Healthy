@@ -15,7 +15,8 @@
 //});
 $(document).ready(function(){
     $('.sidenav').sidenav();
-    $('.tabs').tabs();
+    $('.tabs').tabs();   
+    document.getElementById('numeroCesta').setAttribute('data-count', 12);
   });
 
 

@@ -95,21 +95,28 @@ Modelo seguido: https://magoz.is/
                 </div>
             </div>
 
+
+
             <!-- CESTA -->
             <div class="cesta row">
                 <div class="contenido-cesta">
 
-                    <div class="col s1 offset-s1"><i class="material-icons">shopping_cart</i></div>
+                    <div class="col s1 offset-s1">
+                        <span id="numeroCesta" class="fa-stack" data-count="0" >                            
+                            <i style="" class="fa fa-shopping-cart"></i>
+                        </span>
+                    </div>
                     <div class="col s7 center contenido-cesta"><b>Subtotal</b></div>
                     <div class="col s3 contenido-cesta"><b>00'00€</b></div>
 
-                </div>
+                </div>                
             </div>
+
             <!-- END CESTA -->
         </div>
         <!-- END CONTENIDO -->        
 
-        
+
 
 
 
