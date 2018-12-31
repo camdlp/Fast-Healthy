@@ -15,7 +15,7 @@ Modelo seguido: https://magoz.is/
         <link href="css/basics.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">        
 
-        <title>Menú Fast & Healthy®</title>
+        <title>Acceder a Fast & Healthy®</title>
 
     </head>
     <body>
@@ -55,7 +55,7 @@ Modelo seguido: https://magoz.is/
                 </div>
             </div>
             
-            <div class="row"><a href="#" class="col s12 center">Crear cuenta</a></div>
+            <div class="row"><a href="index.php" class="col s12 center">Crear cuenta</a></div>
         </div>      
         <!-- END NAVBAR -->
 

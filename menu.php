@@ -94,28 +94,22 @@ Modelo seguido: https://magoz.is/
                     <!-- END TERCEROS -->
                 </div>
             </div>
+
+            <!-- CESTA -->
+            <div class="cesta row">
+                <div class="contenido-cesta">
+
+                    <div class="col s1 offset-s1"><i class="material-icons">shopping_cart</i></div>
+                    <div class="col s7 center contenido-cesta"><b>Subtotal</b></div>
+                    <div class="col s3 contenido-cesta"><b>00'00€</b></div>
+
+                </div>
+            </div>
+            <!-- END CESTA -->
         </div>
         <!-- END CONTENIDO -->        
 
-        <!-- FOOTER -->
-        <footer class="center foot">
-            <!-- REDES -->
-            <div class="container social">
-                <div class="row">
-
-                    <div class="col s12 center">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- END REDES -->
-            <p style="color: #88BF57;">Fast & Healthy® 2018</p>
-        </footer>
-        <!-- END FOOTER -->
+        
 
 
 
