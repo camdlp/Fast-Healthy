@@ -150,14 +150,11 @@ body{
 
 .fa-stack[data-count]:after{
     position:fixed;
-    left:12%;
-    bottom:70%;
+    left:11.5%;
+    bottom:77%;
     content: attr(data-count);
     font-size:12px;
-    padding:.4em;
-    border-radius:999px;
-    line-height:0.1;
-    color: white;
+    line-height:0.1;  
     color:white;
     text-align:center;
     min-width:2em;
