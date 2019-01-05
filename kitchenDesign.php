@@ -47,7 +47,7 @@ and open the template in the editor.
                         </li>
                     </ul>
                     <ul class="collection">  
-                        <li class="collection-header"><h5 class="center">Pedido nº XX</h5></li>
+                        <li class="collection-header"><h5 class="center">Pedido nº </h5></li>
                         <li class="collection-item avatar">
                             <i class="fa fa-hand-pointer circle"></i>
                             <span class="title">Primero</span>
@@ -60,7 +60,7 @@ and open the template in the editor.
                         </li>
                         <li class="collection-item avatar">
                             <i class="fa fa-apple-alt circle"></i>
-                            <span class="title">Postre <br>Postre <br>Postre <br>Postre <br>Postre <br></span>
+                            <span class="title">Postre</span>
                             <p id="nombrePostre"></p>
                         </li>
                     </ul>
@@ -71,10 +71,38 @@ and open the template in the editor.
             <!-- COLA PEDIDO -->
             <div class="cola">
                 <div class="colaLabel center">COLA</div>
-                
-                <div>
+
+                <div class="row">
+                    <div class="col s6 card1">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="img/icon-color.png">
+                                <span class="card-title black-text">Espinacas al ajillo</span>
+                                <a class="btn-floating btn-large halfway-fab waves-effect waves-light red quitar"><i class="material-icons">remove</i></a>
+                            </div>
+                            <div class="card-content">
+                                <h6>Ingredientes</h6>
+                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                        </div>
+                    </div>
                     
+                    <div class="col s6">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="img/icon-color.png">
+                                <span class="card-title black-text">Espinacas al ajillo</span>
+                                <a class="btn-floating btn-large halfway-fab waves-effect waves-light red quitar"><i class="material-icons">remove</i></a>
+                            </div>
+                            <div class="card-content">
+                                <h6>Ingredientes</h6>
+                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            </div>
+                        </div>
+                    </div>
+                                        
                 </div>
+                <a href="index.php">Volver al Inicio</a>
             </div>
             <!-- END COLA PEDIDO -->
 

@@ -23,7 +23,7 @@ marron: #A46F3E;
     src: url("https://fonts.googleapis.com/css?family=Roboto");
 }
 
-html{
+body{
     margin: auto;
     font-family: 'Roboto', sans-serif;
 }
