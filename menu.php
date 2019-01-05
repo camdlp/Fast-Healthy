@@ -106,7 +106,7 @@ Modelo seguido: https://magoz.is/
                             <i style="" class="fa fa-shopping-cart"></i>
                         </span>
                     </div>
-                    <div class="col s7 center contenido-cesta"><b>Subtotal</b></div>
+                    <div class="col s7 center contenido-cesta"><b>Total cesta</b></div>
                     <div class="col s3 contenido-cesta"><b>00'00€</b></div>
 
                 </div>                

@@ -13,7 +13,8 @@ Modelo seguido: https://magoz.is/
         <!--Import materialize.css-->
         <link href="css/materialize.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/basics.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">   
+        
 
         <title>Fast & Healthy®</title>
 

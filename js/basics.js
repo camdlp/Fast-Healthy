@@ -13,10 +13,12 @@
 //$(document).ready(function () {
 //    $('.sidenav').sidenav();
 //});
+
 $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.tabs').tabs();   
-    document.getElementById('numeroCesta').setAttribute('data-count', 12);
+    //Línea para el cambio de número de la cesta.
+    //document.getElementById('numeroCesta').setAttribute('data-count', 12);
   });
 
 

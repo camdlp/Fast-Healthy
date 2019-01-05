@@ -48,13 +48,13 @@ Modelo seguido: https://magoz.is/
                 <div class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
-                            
-                            <button type="submit" class='col s8 offset-s2 btn btn-large waves-effect red accent-2'>Entrar</button>                          
+
+                            <button id="accederLogin" type="submit" class='col s8 offset-s2 btn btn-large waves-effect red accent-2'>Entrar</button>                          
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="row"><a href="index.php" class="col s12 center">Crear cuenta</a></div>
         </div>      
         <!-- END NAVBAR -->
@@ -66,6 +66,12 @@ Modelo seguido: https://magoz.is/
         <script src="js/basics.js" type="text/javascript"></script>
         <script src="js/init.js" type="text/javascript"></script>
         <!-- END CARGA DE JAVASCRIPTS -->
+        <script type="text/javascript">
 
+            $('#accederLogin').click(function () {
+                window.location.href = 'kitchenDesign.php';
+            });
+
+        </script>
     </body>
 </html>
