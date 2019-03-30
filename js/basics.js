@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-
+var elementosCesta = 0;
 
 /*
  * Inicializaciones materialize
@@ -13,7 +13,10 @@
 //$(document).ready(function () {
 //    $('.sidenav').sidenav();
 //});
-
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+  
 $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.tabs').tabs();
@@ -24,16 +27,37 @@ $(document).ready(function () {
 //Prueba de quitar un plato ya hecho y recuperarlo si hiciera falta
 $('.quitar').click(function () {
     $('.card1').fadeOut(500);
-    var toastHTML = '<span>Eliminado Espinacas al Ajillo</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
+    var toastHTML = '<span id="toast">Eliminado Espinacas al Ajillo</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
     M.toast({html: toastHTML});
     $('.recupera1').click(function () {
         $('.card1').fadeIn(500);
+        
+        // Quito el toast
+        var toastElement = document.querySelector('.toast');
+        var toastInstance = M.Toast.getInstance(toastElement);
+        toastInstance.dismiss();
     });
 });
+
+
+
 
 
 
 /*
  * Onclicks
  */
-
+var activo = false;
+$('.collapsible').click(function () {
+    
+    
+    if(activo){
+        $('#numeroCesta').attr('data-count', elementosCesta);
+        activo = false;
+    }else{
+        $('#numeroCesta').attr('data-count', null);
+        activo = true;
+    }
+    
+    
+});

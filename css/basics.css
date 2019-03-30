@@ -113,34 +113,24 @@ body{
 
 /*cesta*/
 .cesta{
-    display: table;
-    font-size: 18px;
-    margin: 2%;
-    padding: 0;
-    height: 50px;   
-    position: fixed;    
-    bottom: 0;
+    font-size: 16px;
+    position: fixed;
     left: 0;
-    width: 96%;    
-    background-color: #D13832;
-    color: white;
-    vertical-align: central;
+    bottom: 0;
     z-index: 99;
-    /*Sombras*/
+    width: 96%;
+    margin: 2%;
+    margin-bottom: 0;
+    /*Sombras
     -webkit-box-shadow: 0px -2px 5px 1px rgba(255,255,255,1);
     -moz-box-shadow: 0px -2px 5px 1px rgba(255,255,255,1);
-    box-shadow: 0px -2px 5px 1px rgba(255,255,255,1);
-    border-radius: 15%;
+    box-shadow: 0px -2px 5px 1px rgba(255,255,255,1);*/
+    
     /*Evita el scroll en los navegadores*/
     -webkit-transform: translate3d(0, 0, 0);
     transform : translate3d(0, 0, 0);
 }
 
-.contenido-cesta{
-    display: table-cell;
-    vertical-align: middle;    
-
-}
 /*end cesta*/
 
 
@@ -148,8 +138,8 @@ body{
 
 .fa-stack[data-count]:after{
     position:fixed;
-    left:11.5%;
-    bottom:77%;
+    left:16%;
+    bottom:79%;
     content: attr(data-count);
     font-size:12px;
     line-height:0.1;  

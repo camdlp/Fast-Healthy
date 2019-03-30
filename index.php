@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!--
 TFG Carlos Abia. Universidad Francisco de Vitoria 2019.
 Modelo seguido: https://magoz.is/
@@ -15,7 +20,7 @@ Logo made by SmashIcons from www.flaticon.com
         <link href="css/materialize.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/basics.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">   
-        
+
 
         <title>Fast & Healthy®</title>
 
@@ -58,7 +63,7 @@ Logo made by SmashIcons from www.flaticon.com
 
         <!-- CONTENIDO -->
         <div id="contenido">
-            
+
             <br><br><a href="loginDesign.php">Login</a>
         </div>
         <!-- END CONTENIDO -->        

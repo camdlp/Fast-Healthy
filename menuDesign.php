@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!--
 TFG Carlos Abia. Universidad Francisco de Vitoria 2019.
 Modelo seguido: https://magoz.is/
@@ -68,16 +73,7 @@ Modelo seguido: https://magoz.is/
 
                     <!-- PRIMEROS -->
                     <div class="col s12" id="primeros" >
-                        <div class="card">
-                            <div class="card-image">
-                                <img class="responsive-img"src="img/icon-color.png">
-                                <span class="card-title black-text">Acelgas</span>
-                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                            </div>
-                            <div class="card-content">
-                                <p>Plato de acelgas sanísimo</p>
-                            </div>
-                        </div>
+
                     </div>
                     <!-- END PRIMEROS -->
 
@@ -98,19 +94,32 @@ Modelo seguido: https://magoz.is/
 
 
             <!-- CESTA -->
+
             <div class="cesta row">
-                <div class="contenido-cesta">
+                
+                    <ul class="collapsible red white-text">
+                        <li>
+                            
+                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</span></div>
+                            
+                            <div class="collapsible-header transparent row">
+                                <div class="col s1 offset-s1">
+                                    <span id="numeroCesta" class="fa-stack" data-count="0" >                            
+                                        <i style="" class="fa fa-shopping-cart"></i>
+                                    </span>
+                                </div>
+                                <div class="col s7 center contenido-cesta"><b>Total cesta</b></div>
+                                <span class="col s3 contenido-cesta"><b>00'00€</b></span>
+                            </div>
+                            
+                        </li>
+                    </ul>
 
-                    <div class="col s1 offset-s1">
-                        <span id="numeroCesta" class="fa-stack" data-count="0" >                            
-                            <i style="" class="fa fa-shopping-cart"></i>
-                        </span>
-                    </div>
-                    <div class="col s7 center contenido-cesta"><b>Total cesta</b></div>
-                    <div class="col s3 contenido-cesta"><b>00'00€</b></div>
 
-                </div>                
+                              
             </div>
+
+
 
             <!-- END CESTA -->
         </div>
@@ -133,28 +142,49 @@ Modelo seguido: https://magoz.is/
 
 <script type="text/javascript">
 
-var numeroPlatos = <?php echo $numPlatos ?>;
+    var numeroPlatos = <?php echo $numPlatos ?>;
 
 //cargo el array php de platos en una variable js
-var listaPlatos = <?php echo json_encode($listaPlatos); ?>;
-var output = "";
-for(var i = 0; i < numeroPlatos; i++){
-    
-    output += '<div class="card">\
+    var listaPlatos = <?php echo json_encode($listaPlatos); ?>;
+    var output = "";
+    for (var i = 0; i < numeroPlatos; i++) {
+
+        output += '<div id="card' + listaPlatos[i][0] + '" class="card">\
                 <div class="card-image">\
                     <img class="responsive-img"src="img/icon-color.png">\
-                    <span class="card-title black-text">' + listaPlatos[i] + '</span>\
-                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>\
+                    <span class="card-title black-text">' + listaPlatos[i][1] + '</span>\
+                    <a id="' + listaPlatos[i][0] + '" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>\
                 </div>\
                     <div class="card-content">\
-                        <p>Plato de acelgas sanísimo</p>\
+                        <p>Descripción</p>\
                 </div>\
               </div><br>';
-    
-}
 
-$('#primeros').append(output);
+    }
 
+    $('#primeros').append(output);
+
+//Pulso el botón de añadir plato
+    $('.btn-floating').click(function () {
+        //Sumo 1 plato a la cesta
+        elementosCesta++;
+        console.log(this.id);
+        $('#numeroCesta').attr('data-count', elementosCesta);
+
+        //Toast
+        var toastHTML = '<span>' + listaPlatos[this.id - 1][1] + ' añadido a la cesta</span><button class="btn-flat toast-action recupera1">Deshacer</button>';
+        M.toast({html: toastHTML});
+
+        //Deshacer
+        $('.recupera1').click(function () {
+            elementosCesta--;
+            $('#numeroCesta').attr('data-count', elementosCesta);
+
+            // Quito el toast
+            M.Toast.dismissAll();
+        });
+
+    });
 </script>
 
 
