@@ -164,7 +164,7 @@ body{
 .contendorCocina{
     width: 100vw;
     height: 100vh;
-    margin: 0;
+    margin: 1;
     overflow: hidden;
     /*Evita el scroll en los navegadores*/
     -webkit-transform: translate3d(0, 0, 0);
@@ -189,6 +189,7 @@ body{
     float: left;
     margin: 1%;
     overflow-y: scroll;
+
 }
 
 .contendorCocina:after{
@@ -207,9 +208,10 @@ body{
 
 .pedidoLabel, .colaLabel{         
     padding: 10px;   
-    margin: 10px;
+    margin: 0px;
     font-size: 3vw;
     font-weight: bold;
-    border-bottom: 2px black solid;      
+    border-top: 3px solid #000000;
+    border-bottom: 3px solid #000000;
 }
 /*end cocina*/

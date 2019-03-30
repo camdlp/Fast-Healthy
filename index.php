@@ -2,6 +2,7 @@
 <!--
 TFG Carlos Abia. Universidad Francisco de Vitoria 2019.
 Modelo seguido: https://magoz.is/
+Logo made by SmashIcons from www.flaticon.com 
 -->
 <html>
     <head>
@@ -78,7 +79,7 @@ Modelo seguido: https://magoz.is/
                 </div>
             </div>
             <!-- END REDES -->
-            <p style="color: #88BF57;">Fast & Healthy® 2018</p>
+            <p style="color: #88BF57;">Fast & Healthy® 2019</p>
         </footer>
         <!-- END FOOTER -->
 
