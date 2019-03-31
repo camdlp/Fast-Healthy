@@ -101,11 +101,11 @@ Modelo seguido: https://magoz.is/
                         <li>
                             
                             <div class="collapsible-body" id="cuerpoCesta" >
-                                <span id="contenidoCesta">
+                                <div id="contenidoCesta">
                                     
                                     <h6 style="margin-top: 0"><b>Cesta</b></h6>
                                     
-                                </span>
+                                </div>
                             </div>
                             
                             <div class="collapsible-header transparent row">
@@ -119,7 +119,7 @@ Modelo seguido: https://magoz.is/
                                     <b>Total cesta</b>
                                 
                                 </div>
-                                <span class="col s3 contenido-cesta"><b>00'00€</b></span>
+                                <span class="col s3 precio-cesta"><b>00'00€</b></span>
                             </div>
                             
                         </li>

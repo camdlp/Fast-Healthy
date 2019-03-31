@@ -50,23 +50,7 @@ $('.quitar').click(function () {
 var activo = false;
 $('.collapsible').click(function () {
         
-    if(activo){
-        //Cierra la cesta
-        $('#numeroCesta').fadeIn(500);
-        $('#numeroCesta').attr('data-count', elementosCesta);        
-        activo = false;
-    }else{
-        //Abre la cesta
-        $('#numeroCesta').attr('data-count', null);
-        $('#numeroCesta').fadeOut(500);
-        activo = true;
-        
-        $('#cuerpoCesta').text(muestraArticulos());
-        console.log(muestraArticulos());
-        
-        
-    }
-    
+    $('#contenidoCesta').append('Item1 <br> Item2 <br>');
     
 });
 

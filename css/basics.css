@@ -23,6 +23,20 @@ marron: #A46F3E;
     src: url("https://fonts.googleapis.com/css?family=Roboto");
 }
 
+#toast-container {
+  bottom: auto !important;
+  right: auto !important;
+  top: 10%;
+  left:0%;  
+}
+.toast{
+    border-radius: 30px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 2%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 body{
     margin: auto;
     font-family: 'Roboto', sans-serif;
@@ -120,7 +134,7 @@ body{
     z-index: 99;
     width: 96%;
     margin: 2%;
-    margin-bottom: 0;
+    margin-bottom: 0;    
     /*Sombras
     -webkit-box-shadow: 0px -2px 5px 1px rgba(255,255,255,1);
     -moz-box-shadow: 0px -2px 5px 1px rgba(255,255,255,1);
@@ -130,9 +144,13 @@ body{
     -webkit-transform: translate3d(0, 0, 0);
     transform : translate3d(0, 0, 0);
 }
-.contenido-cesta{
+.precio-cesta{
     position: relative;
     height: 31.5px;
+}
+#cuerpoCesta{
+    max-height: 60vmax; /*vmax, porcentaje del viewport.*/
+    overflow: scroll;
 }
 /*end cesta*/
 
