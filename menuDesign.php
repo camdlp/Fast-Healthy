@@ -100,15 +100,25 @@ Modelo seguido: https://magoz.is/
                     <ul class="collapsible red white-text">
                         <li>
                             
-                            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</span></div>
+                            <div class="collapsible-body" id="cuerpoCesta" >
+                                <span id="contenidoCesta">
+                                    
+                                    <h6 style="margin-top: 0"><b>Cesta</b></h6>
+                                    
+                                </span>
+                            </div>
                             
                             <div class="collapsible-header transparent row">
                                 <div class="col s1 offset-s1">
                                     <span id="numeroCesta" class="fa-stack" data-count="0" >                            
-                                        <i style="" class="fa fa-shopping-cart"></i>
+                                        <i id=""class="fa fa-shopping-cart"></i>
                                     </span>
                                 </div>
-                                <div class="col s7 center contenido-cesta"><b>Total cesta</b></div>
+                                <div class="col s7 center contenido-cesta">
+                                    
+                                    <b>Total cesta</b>
+                                
+                                </div>
                                 <span class="col s3 contenido-cesta"><b>00'00€</b></span>
                             </div>
                             

@@ -49,15 +49,31 @@ $('.quitar').click(function () {
  */
 var activo = false;
 $('.collapsible').click(function () {
-    
-    
+        
     if(activo){
-        $('#numeroCesta').attr('data-count', elementosCesta);
+        //Cierra la cesta
+        $('#numeroCesta').fadeIn(500);
+        $('#numeroCesta').attr('data-count', elementosCesta);        
         activo = false;
     }else{
+        //Abre la cesta
         $('#numeroCesta').attr('data-count', null);
+        $('#numeroCesta').fadeOut(500);
         activo = true;
+        
+        $('#cuerpoCesta').text(muestraArticulos());
+        console.log(muestraArticulos());
+        
+        
     }
     
     
 });
+
+function muestraArticulos(){
+    var output = "";
+    for(var i = 0; i < elementosCesta; i++){
+        output += ""+ (i+1) + "\n ";
+    }
+    return output;
+}

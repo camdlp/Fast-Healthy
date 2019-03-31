@@ -130,16 +130,19 @@ body{
     -webkit-transform: translate3d(0, 0, 0);
     transform : translate3d(0, 0, 0);
 }
-
+.contenido-cesta{
+    position: relative;
+    height: 31.5px;
+}
 /*end cesta*/
 
 
 
 
 .fa-stack[data-count]:after{
-    position:fixed;
-    left:16%;
-    bottom:79%;
+    position: relative;
+    left:40%;
+    bottom:52px;
     content: attr(data-count);
     font-size:12px;
     line-height:0.1;  
