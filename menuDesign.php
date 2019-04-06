@@ -119,7 +119,7 @@ Modelo seguido: https://magoz.is/
                                     <b>Total cesta</b>
                                 
                                 </div>
-                                <span class="col s3 precio-cesta"><b>00'00€</b></span>
+                                <span class="col s3"><b><span id="precio-cesta">0</span>€</b></span>
                             </div>
                             
                         </li>
@@ -149,7 +149,7 @@ Modelo seguido: https://magoz.is/
 
     </body>
 </html>
-
+<!-- CARGO LOS PLATOS DESDE EL SERVIDOR EN CARDS -->
 <script type="text/javascript">
 
     var numeroPlatos = <?php echo $numPlatos ?>;
@@ -159,14 +159,14 @@ Modelo seguido: https://magoz.is/
     var output = "";
     for (var i = 0; i < numeroPlatos; i++) {
 
-        output += '<div id="card' + listaPlatos[i][0] + '" class="card">\
+        output += '<div id="' + listaPlatos[i][0] + '" class="card">\
                 <div class="card-image">\
                     <img class="responsive-img"src="img/icon-color.png">\
                     <span class="card-title black-text">' + listaPlatos[i][1] + '</span>\
                     <a id="' + listaPlatos[i][0] + '" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>\
                 </div>\
                     <div class="card-content">\
-                        <p>Descripción</p>\
+                        <h5>'+ listaPlatos[i][2] +' €</p>\
                 </div>\
               </div><br>';
 
@@ -176,25 +176,46 @@ Modelo seguido: https://magoz.is/
 
 //Pulso el botón de añadir plato
     $('.btn-floating').click(function () {
-        //Sumo 1 plato a la cesta
-        elementosCesta++;
+        //Sumo 1 plato a la cesta y guardo el id del plato en el array de la cesta
+        elementosCesta.push(this.id);
         console.log(this.id);
-        $('#numeroCesta').attr('data-count', elementosCesta);
-
+        console.log(elementosCesta);
+        $('#numeroCesta').attr('data-count', elementosCesta.length);
+        
+        calculaPrecio();
+        
         //Toast
+        //Resto 1 al id porque los ids empiezan en 1 y el array en 0
         var toastHTML = '<span>' + listaPlatos[this.id - 1][1] + ' añadido a la cesta</span><button class="btn-flat toast-action recupera1">Deshacer</button>';
         M.toast({html: toastHTML});
 
         //Deshacer
         $('.recupera1').click(function () {
-            elementosCesta--;
-            $('#numeroCesta').attr('data-count', elementosCesta);
-
+            //Borro el último plato añadido
+            elementosCesta.splice(-1,1);
+            console.log(elementosCesta);
+            
+            calculaPrecio();
+            $('#numeroCesta').attr('data-count', elementosCesta.length);
+            
+            
             // Quito el toast
             M.Toast.dismissAll();
         });
 
     });
+    
+    function calculaPrecio() {
+        var total = 0;
+        for (var i = 0; i < elementosCesta.length; i++){      
+            var actual = elementosCesta[i];
+            //console.log(actual);
+            total += parseFloat(listaPlatos[elementosCesta[i]-1][2]);
+            console.log(total);
+            $('#precio-cesta').text(total.toString());
+        }
+            
+    }
 </script>
 
 

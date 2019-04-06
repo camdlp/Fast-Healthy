@@ -30,8 +30,8 @@ Logo made by SmashIcons from www.flaticon.com
         <!-- NAVBAR -->
         <nav class="navbar-material white no-shadows">
             <div class="nav-wrapper">
-                <a href="index.php" class="brand-logo left"><img class="responsive-img" id="logo" style="margin: 10%;" src="img/icon-color.png"/></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons red-text">menu</i></a>
+                <a href="index.php" class="brand-logo left"><img class="responsive-img flip-scale-up-hor" id="logo" style="margin: 10%;" src="img/icon-color.png"/></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons red-text rotate-in-center">menu</i></a>
                 <ul class="right hide-on-med-and-down">                    
                     <li><a href="#"><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
                     <li><a class="menu" href="menu.php"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>

@@ -24,7 +24,7 @@ Modelo seguido: https://magoz.is/
         <div class="navbar-login">
             <h4 class="center red-text">Fast & Healthy</h4>
             <div class="row">
-                <img class="col s4 offset-s4" src="img/icon-color.png">
+                <img class="col s4 offset-s4 flip-scale-up-hor" src="img/icon-color.png">
             </div>
             <div class="row">
                 <div class="col s12">

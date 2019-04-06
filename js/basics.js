@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var elementosCesta = 0;
+var elementosCesta = [];
 
 /*
  * Inicializaciones materialize
@@ -26,7 +26,7 @@ $(document).ready(function () {
 
 //Prueba de quitar un plato ya hecho y recuperarlo si hiciera falta
 $('.quitar').click(function () {
-    $('.card1').fadeOut(500);
+    $('.card1').fadeOut(500);    
     var toastHTML = '<span id="toast">Eliminado Espinacas al Ajillo</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
     M.toast({html: toastHTML});
     $('.recupera1').click(function () {
@@ -51,12 +51,13 @@ var activo = false;
 $('.collapsible').click(function () {
         
     $('#contenidoCesta').append('Item1 <br> Item2 <br>');
+    console.log(elementosCesta);
     
 });
 
 function muestraArticulos(){
     var output = "";
-    for(var i = 0; i < elementosCesta; i++){
+    for(var i = 0; i < elementosCesta.length; i++){
         output += ""+ (i+1) + "\n ";
     }
     return output;
