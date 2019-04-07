@@ -103,7 +103,7 @@ Modelo seguido: https://magoz.is/
                             <div class="collapsible-body" id="cuerpoCesta" >
                                 <div id="contenidoCesta">
                                     
-                                    <h6 style="margin-top: 0"><b>Cesta</b></h6>
+                                    <h6 style="margin-top: 0"><b>La cesta está vacía</b></h6>
                                     
                                 </div>
                             </div>
@@ -208,8 +208,9 @@ Modelo seguido: https://magoz.is/
     function calculaPrecio() {
         var total = 0;
         for (var i = 0; i < elementosCesta.length; i++){      
-            var actual = elementosCesta[i];
+ 
             //console.log(actual);
+            //Resto 1 a elementoscesta por ser un array y lo que contiene el id del plato que empieza en 1
             total += parseFloat(listaPlatos[elementosCesta[i]-1][2]);
             console.log(total);
             $('#precio-cesta').text(total.toString());

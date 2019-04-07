@@ -13,10 +13,10 @@ var elementosCesta = [];
 //$(document).ready(function () {
 //    $('.sidenav').sidenav();
 //});
-$(document).ready(function(){
+$(document).ready(function () {
     $('.collapsible').collapsible();
-  });
-  
+});
+
 $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.tabs').tabs();
@@ -26,12 +26,12 @@ $(document).ready(function () {
 
 //Prueba de quitar un plato ya hecho y recuperarlo si hiciera falta
 $('.quitar').click(function () {
-    $('.card1').fadeOut(500);    
+    $('.card1').fadeOut(500);
     var toastHTML = '<span id="toast">Eliminado Espinacas al Ajillo</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
     M.toast({html: toastHTML});
     $('.recupera1').click(function () {
         $('.card1').fadeIn(500);
-        
+
         // Quito el toast
         var toastElement = document.querySelector('.toast');
         var toastInstance = M.Toast.getInstance(toastElement);
@@ -47,18 +47,30 @@ $('.quitar').click(function () {
 /*
  * Onclicks
  */
-var activo = false;
 $('.collapsible').click(function () {
-        
-    $('#contenidoCesta').append('Item1 <br> Item2 <br>');
-    console.log(elementosCesta);
-    
+    if (elementosCesta.length > 0) {
+        var texto = "<table class='centered'><th class='center' colspan='2'>Artículos en la Cesta</th>"
+        for (var i = 0; i < elementosCesta.length; i++) {
+
+            texto += "<tr>";
+            texto += "<td col s10>" + listaPlatos[elementosCesta[i] - 1][1] + "</td>" + "<td>" + listaPlatos[elementosCesta[i] - 1][2] + " €</td>";
+            texto += "</tr>";
+
+        }
+        texto += "<th class='center' colspan='2'><a class='waves-effect waves-light btn-small red'><i class='material-icons left'>cloud</i>Realizar pedido</a></th></table>";
+        $('#contenidoCesta').html(texto);
+        console.log(texto);
+        console.log(elementosCesta);
+    }else M.toast({html: 'La cesta está vacía'});
+
+
+
 });
 
-function muestraArticulos(){
+function muestraArticulos() {
     var output = "";
-    for(var i = 0; i < elementosCesta.length; i++){
-        output += ""+ (i+1) + "\n ";
+    for (var i = 0; i < elementosCesta.length; i++) {
+        output += "" + (i + 1) + "\n ";
     }
     return output;
 }
