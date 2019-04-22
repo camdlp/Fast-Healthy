@@ -9,10 +9,11 @@ TFG Carlos Abia. Universidad Francisco de Vitoria 2019.
 Modelo seguido: https://magoz.is/
 Logo made by SmashIcons from www.flaticon.com 
 -->
-<html>
+<html class="fondo">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="shortcut icon" type="image/png" href="img/icon-color.png"/>
 
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -28,7 +29,7 @@ Logo made by SmashIcons from www.flaticon.com
     <body>
 
         <!-- NAVBAR -->
-        <nav class="navbar-material white no-shadows">
+        <nav class="navbar-material transparent no-shadows">
             <div class="nav-wrapper">
                 <a href="index.php" class="brand-logo left"><img class="responsive-img flip-scale-up-hor" id="logo" style="margin: 10%;" src="img/icon-color.png"/></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons red-text rotate-in-center">menu</i></a>
@@ -64,12 +65,22 @@ Logo made by SmashIcons from www.flaticon.com
         <!-- CONTENIDO -->
         <div id="contenido">
 
-            <br><br><a href="loginDesign.php">Login</a>
+            
+            
+            <div class="row center">
+                <h4 class="grey-text text-darken-3">Fast & Healthy</h4>
+                <h5 class="grey-text text-darken-2">Tu cadena de comida rápida y saludable.</h5>
+                <a href="menu.php"class="btn-large red comienza">
+                ¡COMIENZA TU PEDIDO YA!
+                </a>
+                
+            </div>
+            
         </div>
         <!-- END CONTENIDO -->        
 
         <!-- FOOTER -->
-        <footer class="center foot">
+        <footer class="center foot rotado">
             <!-- REDES -->
             <div class="container social">
                 <div class="row">
@@ -84,7 +95,7 @@ Logo made by SmashIcons from www.flaticon.com
                 </div>
             </div>
             <!-- END REDES -->
-            <p style="color: #88BF57;">Fast & Healthy® 2019</p>
+            <!--<p style="color: #88BF57;">Fast & Healthy® 2019</p>-->
         </footer>
         <!-- END FOOTER -->
 

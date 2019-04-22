@@ -12,7 +12,8 @@ Modelo seguido: https://magoz.is/
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+        <link rel="shortcut icon" type="image/png" href="img/icon-color.png"/>
+        
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
@@ -63,7 +64,7 @@ Modelo seguido: https://magoz.is/
         <div id="contenido">
             <div class="row">
                 <div class="col s12">
-                    <h4>Platos del menú</h4>
+                    <h5>Platos del menú</h5>
                     <ul class="tabs">
                         <li class="tab col s3"><a href="#primeros">Primeros</a></li>
                         <li class="tab col s3"><a href="#segundos">Segundos</a></li>                    

@@ -7,7 +7,7 @@ Modelo seguido: https://magoz.is/
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+        <link rel="shortcut icon" type="image/png" href="img/icon-outline.png"/>
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
