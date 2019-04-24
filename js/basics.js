@@ -57,7 +57,7 @@ $('.collapsible').click(function () {
             texto += "</tr>";
 
         }
-        texto += "<th class='center' colspan='2'><a class='waves-effect waves-light btn-small red'><i class='material-icons left'>cloud</i>Realizar pedido</a></th></table>";
+        texto += "<th class='center' style='border-bottom:1px solid #f44336' colspan='2'><a class='waves-effect waves-light btn-flat white red-text'><i class='fa fa-check-circle left'></i>Realizar pedido</a></th></table>";
         $('#contenidoCesta').html(texto);
         console.log(texto);
         console.log(elementosCesta);
