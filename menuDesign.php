@@ -213,9 +213,14 @@ Modelo seguido: https://magoz.is/
             //console.log(actual);
             //Resto 1 a elementoscesta por ser un array y lo que contiene el id del plato que empieza en 1
             total += parseFloat(listaPlatos[elementosCesta[i]-1][2]);
-            console.log(total);
-            $('#precio-cesta').text(total.toString());
+            
+            
+            //Evitamos los números periódicos con una simple función matemática. 
+            total = Math.round(total * 100) / 100;
+            
         }
+        
+        $('#precio-cesta').text(total.toString());
             
     }
 </script>

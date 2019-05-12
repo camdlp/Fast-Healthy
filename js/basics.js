@@ -47,21 +47,33 @@ $('.quitar').click(function () {
 /*
  * Onclicks
  */
-$('.collapsible').click(function () {
+$('.collapsible-header').click(function () {
     if (elementosCesta.length > 0) {
-        var texto = "<table class='centered'><th class='center' colspan='2'>Artículos en la Cesta</th>"
-        for (var i = 0; i < elementosCesta.length; i++) {
 
-            texto += "<tr>";
-            texto += "<td col s10>" + listaPlatos[elementosCesta[i] - 1][1] + "</td>" + "<td>" + listaPlatos[elementosCesta[i] - 1][2] + " €</td>";
+        var texto = "<table class='centered'><th class='center' colspan='2'>Artículos en la Cesta</th>"
+        
+        //Cuenta los elementos introducidos en el array
+        var contadorElementos = 0;
+        for (var i = 0; i < elementosCesta.length; i++) {
+            
+            texto += "<tr id="+contadorElementos+" class='elementoDeLaCesta'>";
+            texto += "<td>" + listaPlatos[elementosCesta[i] - 1][1] + "</td>" + "<td>" + listaPlatos[elementosCesta[i] - 1][2] + " €</td>";
             texto += "</tr>";
+            
+            
+            contadorElementos++;
 
         }
         texto += "<th class='center' style='border-bottom:1px solid #f44336' colspan='2'><a class='waves-effect waves-light btn-flat white red-text'><i class='fa fa-check-circle left'></i>Realizar pedido</a></th></table>";
-        $('#contenidoCesta').html(texto);
-        console.log(texto);
-        console.log(elementosCesta);
-    }else M.toast({html: 'La cesta está vacía'});
+        
+    }else {
+        M.toast({html: 'La cesta está vacía'});
+        var texto = "<h6 style='margin-top: 0'><b>La cesta está vacía</b></h6>"
+    }
+    
+    $('#contenidoCesta').html(texto);
+    //console.log(texto);
+    console.log(elementosCesta);
 
 
 
@@ -74,3 +86,32 @@ function muestraArticulos() {
     }
     return output;
 }
+
+
+$('#contenidoCesta').on('click', '.elementoDeLaCesta', function () {
+    
+    console.log("Se ha eliminado el elemento " + $(this).attr('id'));
+    console.log(elementosCesta.length);
+    //la función splice sirve para eliminar elementos de un array, el primer número 
+    //indica la posición de inicio y el segundo los elementos que se borrarán a partir 
+    //de ella.
+    elementosCesta.splice(this.id, 1);
+    
+    //Cierro el collapsible y lo vuelvo a abrir pero con un click para activar 
+    //los métodos asociados al click como mostrar los elementos de la cesta.
+    $('.collapsible').collapsible('close');
+    $('.collapsible-header').click();
+    
+    //Calculo de nuevo el precio y los elemento que hay en la cesta.
+    $('#numeroCesta').attr('data-count', elementosCesta.length);
+    calculaPrecio();
+    
+    
+    
+    
+});
+    
+    
+    
+    
+    
