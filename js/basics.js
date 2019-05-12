@@ -5,7 +5,7 @@
  */
 
 var elementosCesta = [];
-
+var platoSeleccionado;
 /*
  * Inicializaciones materialize
  */
@@ -24,7 +24,27 @@ $(document).ready(function () {
     //document.getElementById('numeroCesta').setAttribute('data-count', 12);
 });
 
-//Prueba de quitar un plato ya hecho y recuperarlo si hiciera falta
+$(document).ready(function () {
+    $('.modal').modal();
+});
+
+/*
+ * FIN Inicializaciones materialize
+ */
+
+
+
+
+
+
+
+
+
+/*
+ * Onclicks
+ */
+
+//Quitar un plato ya hecho y recuperarlo si hiciera falta
 $('.quitar').click(function () {
     $('.card1').fadeOut(500);
     var toastHTML = '<span id="toast">Eliminado Espinacas al Ajillo</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
@@ -41,12 +61,6 @@ $('.quitar').click(function () {
 
 
 
-
-
-
-/*
- * Onclicks
- */
 $('.collapsible-header').click(function () {
     if (elementosCesta.length > 0) {
 
@@ -90,12 +104,19 @@ function muestraArticulos() {
 
 $('#contenidoCesta').on('click', '.elementoDeLaCesta', function () {
     
-    console.log("Se ha eliminado el elemento " + $(this).attr('id'));
+    $('#modal1').modal('open');
+    platoSeleccionado = this.id;
+        
+});
+
+    
+function borra() {
+    console.log("Se ha eliminado el elemento " + platoSeleccionado);
     console.log(elementosCesta.length);
     //la función splice sirve para eliminar elementos de un array, el primer número 
     //indica la posición de inicio y el segundo los elementos que se borrarán a partir 
     //de ella.
-    elementosCesta.splice(this.id, 1);
+    elementosCesta.splice(platoSeleccionado, 1);
     
     //Cierro el collapsible y lo vuelvo a abrir pero con un click para activar 
     //los métodos asociados al click como mostrar los elementos de la cesta.
@@ -105,13 +126,6 @@ $('#contenidoCesta').on('click', '.elementoDeLaCesta', function () {
     //Calculo de nuevo el precio y los elemento que hay en la cesta.
     $('#numeroCesta').attr('data-count', elementosCesta.length);
     calculaPrecio();
-    
-    
-    
-    
-});
-    
-    
-    
+}
     
     

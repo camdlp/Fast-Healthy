@@ -147,6 +147,18 @@ Modelo seguido: https://magoz.is/
         <script src="js/basics.js" type="text/javascript"></script>
         <script src="js/init.js" type="text/javascript"></script>
         <!-- END CARGA DE JAVASCRIPTS -->
+        
+        <!-- MODALES -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h5 class="red-text darken-2">¿Seguro que quieres eliminar este plato?</h5>
+                <p>Este plato se eliminará de tu cesta.</p>
+            <div>
+            <div class="modal-footer">                
+                <a class="modal-close waves-effect waves-green btn-flat">No</a>
+                <a onclick="borra()" class="modal-close waves-effect waves-green btn-flat red-text">Sí</a>
+            </div>
+        </div>
 
     </body>
 </html>
@@ -223,6 +235,7 @@ Modelo seguido: https://magoz.is/
         $('#precio-cesta').text(total.toString());
             
     }
+    
 </script>
 
 
