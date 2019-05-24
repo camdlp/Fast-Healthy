@@ -65,22 +65,22 @@ Logo made by SmashIcons from www.flaticon.com
         <!-- CONTENIDO -->
         <div id="contenido">
 
-            
-            
+
+
             <div class="row center">
                 <h4 class="grey-text text-darken-3">Fast & Healthy</h4>
                 <h5 class="grey-text text-darken-2">Tu cadena de comida rápida y saludable.</h5>
                 <a href="menu.php"class="btn-large red comienza">
-                ¡COMIENZA TU PEDIDO YA!
+                    ¡COMIENZA TU PEDIDO YA!
                 </a>
-                
+
             </div>
-            
+
         </div>
         <!-- END CONTENIDO -->        
 
         <!-- FOOTER -->
-        <footer class="center foot rotado">
+        <footer class="foot rotado">
             <!-- REDES -->
             <div class="container social">
                 <div class="row">
@@ -108,6 +108,6 @@ Logo made by SmashIcons from www.flaticon.com
         <script src="js/basics.js" type="text/javascript"></script>
         <script src="js/init.js" type="text/javascript"></script>
         <!-- END CARGA DE JAVASCRIPTS -->
-
     </body>
+    
 </html>

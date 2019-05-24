@@ -17,6 +17,12 @@ rojo-claro: #EF3F30;
 marron: #A46F3E;
 */
 
+/*QUITAR MARCA DE AGUA DEL SERVIDOR WEBHOST*/
+img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+    display: none;
+}
+
+
 /*Fuente de la página*/
 @font-face{
     font-family: "Roboto";
@@ -37,6 +43,7 @@ marron: #A46F3E;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
 #toast-container {
@@ -124,12 +131,12 @@ body{
     position:relative;
     bottom:0;
     width:100%;
-    height:70px;  
+    height:50px;  
 }
 .rotado{
     position: absolute;
-    bottom: 15%;
-    left: 10%;
+    bottom: 18%;
+    left: 3%;
     transform: rotate(-45deg);
     transform-origin: right, top;
     -ms-transform: rotate(-45deg);

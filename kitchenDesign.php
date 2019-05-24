@@ -75,14 +75,16 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col s6 card1">
                         <div class="card">
+                            
                             <div class="card-image">
                                 <img src="img/icon-color.png">
                                 <span class="card-title black-text">Espinacas al ajillo</span>
                                 <a class="btn-floating btn-large halfway-fab waves-effect waves-light red quitar"><i class="material-icons">remove</i></a>
                             </div>
+                            
                             <div class="card-content">
                                 <h6>Ingredientes</h6>
-                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                <h6>Espinaca - Ajo - Sal - Orégano</h6>
                             </div>
                         </div>
                     </div>
@@ -96,13 +98,13 @@ and open the template in the editor.
                             </div>
                             <div class="card-content">
                                 <h6>Ingredientes</h6>
-                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                <h6>Espinaca - Ajo - Sal - Orégano</h6>
                             </div>
                         </div>
                     </div>
                                         
                 </div>
-                <a href="index.php">Volver al Inicio</a>
+                <!--<a href="index.php">Volver al Inicio</a>-->
             </div>
             <!-- END COLA PEDIDO -->
 
