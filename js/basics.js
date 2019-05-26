@@ -64,14 +64,14 @@ $('.quitar').click(function () {
 $('.collapsible-header').click(function () {
     if (elementosCesta.length > 0) {
 
-        var texto = "<table class='centered'><th class='center' colspan='2'>Artículos en la Cesta</th>"
+        var texto = "<table class='centered'><th class='center' colspan='2' style='border-bottom:1px solid white'>Artículos en la Cesta</th>"
         
         //Cuenta los elementos introducidos en el array
         var contadorElementos = 0;
         for (var i = 0; i < elementosCesta.length; i++) {
             
-            texto += "<tr id="+contadorElementos+" class='elementoDeLaCesta'>";
-            texto += "<td>" + listaPlatos[elementosCesta[i] - 1][1] + "</td>" + "<td>" + listaPlatos[elementosCesta[i] - 1][2] + " €</td>";
+            texto += "<tr id="+contadorElementos+" class='elementoDeLaCesta' style='border-bottom:1px solid white'>";
+            texto += "<td>" + listaPlatos[elementosCesta[i] - 1][1] + "</td>" + "<td>" + listaPlatos[elementosCesta[i] - 1][2] + " € </td>";
             texto += "</tr>";
             
             

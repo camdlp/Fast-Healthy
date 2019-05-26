@@ -159,6 +159,7 @@ Modelo seguido: https://magoz.is/
                 <a onclick="borra()" class="modal-close waves-effect waves-green btn-flat red-text">Sí</a>
             </div>
         </div>
+        <!-- FIN MODALES -->
 
     </body>
 </html>
@@ -233,7 +234,13 @@ Modelo seguido: https://magoz.is/
         }
         
         $('#precio-cesta').text(total.toString());
+        console.log(elementosCesta);
             
+    }
+    
+    //Agrupa los elementos existentes en elementosCesta en un nivel del array multidimensional "colaPedidos".
+    function creaPedido(){
+        
     }
     
 </script>

@@ -56,6 +56,8 @@ Modelo seguido: https://magoz.is/
             </div>
 
             <div class="row"><a href="index.php" class="col s12 center">Crear cuenta</a></div>
+            <!--<a href="#" onclick="openNewTab()">Nueva</a>
+            <a href="#" onclick="refreshExistingTab()">Refresh</a> Prueba recargar página desde otra-->
         </div>      
         <!-- END NAVBAR -->
 
@@ -71,6 +73,18 @@ Modelo seguido: https://magoz.is/
             $('#accederLogin').click(function () {
                 window.location.href = 'kitchenDesign.php';
             });
+
+            var childWindow = "http://localhost:8080/Fast-Healthy/kitchenDesign.php";
+            var newTabUrl = "http://localhost:8080/Fast-Healthy/index.php";
+
+            function openNewTab() {
+                childWindow = window.open(newTabUrl);
+            }
+
+            function refreshExistingTab() {
+                childWindow.location.href = newTabUrl;
+            }
+
 
         </script>
     </body>
