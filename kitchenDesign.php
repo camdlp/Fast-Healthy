@@ -30,7 +30,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="contendorCocina">
             <!-- RESUMEN PEDIDO -->
             <div class="pedido">
-                <div class="pedidoLabel center">PEDIDO</div>
+                <div class="pedidoLabel center">PEDIDOS</div>
 
                 <div id="pedidosResumen">
                     <!-- AQUÍ VAN LOS RESÚMENES DE CADA PEDIDO -->
@@ -40,7 +40,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
             <!-- COLA PEDIDO -->
             <div class="cola">
-                <div class="colaLabel center">COLA</div>
+                <div class="colaLabel center">PLATOS EN COLA</div>
 
                 <div id="pedidosCola" class="row">
                     <!-- AQUÍ VAN LOS PLATOS DE CADA PEDIDO -->
@@ -61,11 +61,13 @@ if (session_status() == PHP_SESSION_NONE) {
         <!-- END CARGA DE JAVASCRIPTS -->
 
         <script type="text/javascript">
+
             //Variables que guardan la cola de los pedidos y el número de pedidos en la cola
             var colaPedidos = <?php echo json_encode($listaPedidos); ?>;
 
             var pedidosListaPlatos = <?php echo json_encode($listaPlatos2); ?>;
 
+            var ultimaActualizacion;
             //Crea las cartas de los platos de cada pedido para la cola
             creaCardsPlatos();
             //Crea las listas con los platos de cada pedido
@@ -78,9 +80,9 @@ if (session_status() == PHP_SESSION_NONE) {
                 var output = '';
 
                 for (var i = 0; i < colaPedidos.length; i++) {
-                    
+
                     for (var j = 3; j < colaPedidos[i].length; j++) {
-                        
+
                         contadorId = colaPedidos[i][0] + '-' + pedidosListaPlatos[colaPedidos[i][j] - 1][0];
                         console.log(contadorId);
                         output += '<div id="cola' + contadorId + '" class="col s6 card1">';
@@ -95,7 +97,7 @@ if (session_status() == PHP_SESSION_NONE) {
                             </div>\
                         </div><br>';
                         output += '</div>'
-                        
+
                     }
                 }
 
@@ -105,9 +107,10 @@ if (session_status() == PHP_SESSION_NONE) {
             }
 
             function creaCardsPedidos() {
+                console.log('Creado');
                 var output = '';
                 for (var i = 0; i < colaPedidos.length; i++) {
-                    output += `<ul class="collection" id="pedido`+colaPedidos[i][0]+`">  
+                    output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `">  
                                 <li class="collection-header"><h5 class="center">Pedido nº <b>` + colaPedidos[i][0] + `</b></h5></li>
                                 <li class="collection-item avatar">
                                     <i class="fa fa-hand-pointer circle"></i>
@@ -131,7 +134,7 @@ if (session_status() == PHP_SESSION_NONE) {
                             </ul>`;
                 }
 
-                $('#pedidosResumen').append(output);
+                $('#pedidosResumen').html(output);
             }
 
             //Quitar un plato ya hecho y recuperarlo si hiciera falta
@@ -139,17 +142,17 @@ if (session_status() == PHP_SESSION_NONE) {
                 var idCard = this.id;
                 console.log("Pulsado " + idCard);
                 $('#cola' + idCard).fadeOut(500);
-                
+
                 //Divido el id del botón donde guardé el número de pedido junto al número de plato 
                 //para obtener el id del plato.
-                var arrayAux = idCard.split('-');               
-                
-                var toastHTML = '<span id="toast">Eliminado ' + pedidosListaPlatos[arrayAux[1]-1][1]+ '</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
+                var arrayAux = idCard.split('-');
+
+                var toastHTML = '<span id="toast">Eliminado ' + pedidosListaPlatos[arrayAux[1] - 1][1] + '</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
                 M.toast({html: toastHTML});
-                
+
                 $('.recupera1').click(function () {
                     $('#cola' + idCard).fadeIn(500);
-                    console.log("Recuperado "+idCard);
+                    console.log("Recuperado " + idCard);
 
                     // Quito el toast
                     var toastElement = document.querySelector('.toast');
@@ -157,6 +160,35 @@ if (session_status() == PHP_SESSION_NONE) {
                     toastInstance.dismiss();
                 });
             });
+            
+            
+            $(function () { // Ojo! uso jQuery, recuerda añadirla al html
+                cron(); // Lanzo cron la primera vez
+                function cron() {
+                    $.ajax({
+                        method: "POST",
+                        url: "/Fast-Healthy/actualiza.php", // Podrías separar las funciones de PHP en un fichero a parte
+                        data: {
+                            action: 1
+                        }
+                    }).done(function (msg) {
+                        if(ultimaActualizacion == undefined){
+                            ultimaActualizacion = msg;
+                        }else if(ultimaActualizacion != msg){
+                            
+                            ultimaActualizacion = msg;                            
+                            location.reload();
+                        }
+                        console.log(msg);
+                        
+                    });
+                }
+                setInterval(function () {
+                    cron();
+                }, 5000); // Lanzará la petición cada 10 segundos
+            });
+
+
 
         </script>
     </body>

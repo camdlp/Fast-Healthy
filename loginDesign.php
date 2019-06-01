@@ -55,7 +55,7 @@ Modelo seguido: https://magoz.is/
                 </div>
             </div>
 
-            <div class="row"><a href="index.php" class="col s12 center">Crear cuenta</a></div>
+            <div class="row"><a href="sms.php" class="col s12 center teal-text">Crear cuenta</a></div>
             <!--<a href="#" onclick="openNewTab()">Nueva</a>
             <a href="#" onclick="refreshExistingTab()">Refresh</a> Prueba recargar página desde otra-->
         </div>      

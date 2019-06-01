@@ -238,10 +238,6 @@ Modelo seguido: https://magoz.is/
             
     }
     
-    //Agrupa los elementos existentes en elementosCesta en un nivel del array multidimensional "colaPedidos".
-    function creaPedido(){
-        
-    }
     
 </script>
 
