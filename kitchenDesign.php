@@ -14,6 +14,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="shortcut icon" type="image/png" href="img/icon-outline.png"/>
         <title>Cocina Fast & Healthy®</title>
 
         <!-- CARGA DE CSS -->
@@ -161,13 +162,13 @@ if (session_status() == PHP_SESSION_NONE) {
                 });
             });
             
-            
-            $(function () { // Ojo! uso jQuery, recuerda añadirla al html
-                cron(); // Lanzo cron la primera vez
+            //Creo una función que cada 5 segundo compruebe que no hay pedidos nuevos en la base de datos 
+            $(function () { 
+                cron(); 
                 function cron() {
                     $.ajax({
                         method: "POST",
-                        url: "/Fast-Healthy/actualiza.php", // Podrías separar las funciones de PHP en un fichero a parte
+                        url: "/actualiza.php",//Dependiente de los directorio de la página 
                         data: {
                             action: 1
                         }
@@ -177,7 +178,7 @@ if (session_status() == PHP_SESSION_NONE) {
                         }else if(ultimaActualizacion != msg){
                             
                             ultimaActualizacion = msg;                            
-                            location.reload();
+                            location.reload(); 
                         }
                         console.log(msg);
                         
@@ -185,7 +186,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 }
                 setInterval(function () {
                     cron();
-                }, 5000); // Lanzará la petición cada 10 segundos
+                }, 5000); // Lanzará la petición cada 5 segundos
             });
 
 
