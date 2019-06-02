@@ -65,9 +65,9 @@ if (session_status() == PHP_SESSION_NONE) {
 
             //Variables que guardan la cola de los pedidos y el número de pedidos en la cola
             var colaPedidos = <?php echo json_encode($listaPedidos); ?>;
-            console.log(colaPedidos);
-            var pedidosListaPlatos = <?php echo json_encode($listaPlatos2); ?>;
             
+            var pedidosListaPlatos = <?php echo json_encode($listaPlatos2); ?>;
+            console.log(colaPedidos);console.log(pedidosListaPlatos);
             var ultimaActualizacion;
             //Crea las cartas de los platos de cada pedido para la cola
             creaCardsPlatos();
@@ -85,7 +85,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
                     for (var j = 3; j < colaPedidos[i].length; j++) {
                         
-                        contadorId = i + '-' + j;
+                        contadorId = i + '-' + colaPedidos[i][j];
                         console.log(contadorId);
                         
                         output += '<div id="cola' + contadorId + '" class="col s6 card1 ">';
@@ -167,13 +167,16 @@ if (session_status() == PHP_SESSION_NONE) {
                 //para obtener el id del plato.
                 var arrayAux = idCard.split('-');
 
-                var toastHTML = '<span id="toast">Eliminado ' + pedidosListaPlatos[arrayAux[1] - 1][1] + '</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
+                var toastHTML = '<span id="toast">Eliminado ' + pedidosListaPlatos[arrayAux[1]-1][1] + '</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
                 M.toast({html: toastHTML, completeCallback: function(){
+                        //Quito el último valor de
                         colaPedidos[arrayAux[0]].pop();
                         console.log(colaPedidos);
                         if(colaPedidos[arrayAux[0]].length <= 3){
                             $('#pedido' + colaPedidos[arrayAux[0]][0]).fadeOut(500);
                         }
+                        
+                        //AÑADIR UN UPDATE A LA TABLA PEDIDOS QUE PONGA EL PENDIENTE EN 0
                     }});
                     
                 
