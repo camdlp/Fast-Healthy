@@ -65,9 +65,10 @@ if (session_status() == PHP_SESSION_NONE) {
 
             //Variables que guardan la cola de los pedidos y el número de pedidos en la cola
             var colaPedidos = <?php echo json_encode($listaPedidos); ?>;
-            
+
             var pedidosListaPlatos = <?php echo json_encode($listaPlatos2); ?>;
-            console.log(colaPedidos);console.log(pedidosListaPlatos);
+            console.log(colaPedidos);
+            console.log(pedidosListaPlatos);
             var ultimaActualizacion;
             //Crea las cartas de los platos de cada pedido para la cola
             creaCardsPlatos();
@@ -84,19 +85,20 @@ if (session_status() == PHP_SESSION_NONE) {
                 for (var i = 0; i < colaPedidos.length; i++) {
 
                     for (var j = 3; j < colaPedidos[i].length; j++) {
-                        
+
                         contadorId = i + '-' + colaPedidos[i][j];
                         console.log(contadorId);
-                        
+
                         output += '<div id="cola' + contadorId + '" class="col s6 card1 ">';
-                        
-                        if(color){
+
+                        if (color) {
                             output += '<div id="' + pedidosListaPlatos[colaPedidos[i][j] - 1][0] + '" class="card" style="border-top:4px solid #D13832;border-bottom:4px solid #D13832">';
-                        }else output += '<div id="' + pedidosListaPlatos[colaPedidos[i][j] - 1][0] + '" class="card" style="border-top:4px solid #A46F3E;border-bottom:4px solid #A46F3E">';
-                        
+                        } else
+                            output += '<div id="' + pedidosListaPlatos[colaPedidos[i][j] - 1][0] + '" class="card" style="border-top:4px solid #A46F3E;border-bottom:4px solid #A46F3E">';
+
                         output += `<div class="card-image">
                             <img class="responsive-img"src="img/icon-color.png">
-                            <span class="card-title black-text">`+ pedidosListaPlatos[colaPedidos[i][j] - 1][1] + `</span>
+                            <span class="card-title black-text">` + pedidosListaPlatos[colaPedidos[i][j] - 1][1] + `</span>
                             <a id="` + contadorId + `" class="btn-floating btn-large halfway-fab waves-effect waves-light red quitar"><i class="material-icons">remove</i></a>
                         </div>
                             <div class="card-content">
@@ -104,7 +106,7 @@ if (session_status() == PHP_SESSION_NONE) {
                             </div>
                         </div><br>'`;
                         output += '</div>'
-                        
+
                     }
                     //Al cambiar de pedido cambio de color
                     color = !color;
@@ -120,13 +122,14 @@ if (session_status() == PHP_SESSION_NONE) {
                 //Variable de color que hará que las cards se alernen en color para distinguir los platos de uno y otro pedido.
                 var color = true;
                 console.log('Creado');
-                
+
                 for (var i = 0; i < colaPedidos.length; i++) {
-                    if(color){
-                        output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `" style="border-left:4px solid #D13832">`; 
-                    }else output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `"style="border-left:4px solid #A46F3E">`;  
-                                
-                                output += `<li class="collection-header"><h5 class="center">Pedido nº <b>` + colaPedidos[i][0] + `</b></h5></li>
+                    if (color) {
+                        output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `" style="border-left:4px solid #D13832">`;
+                    } else
+                        output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `"style="border-left:4px solid #A46F3E">`;
+
+                    output += `<li class="collection-header"><h5 class="center">Pedido nº <b>` + colaPedidos[i][0] + `</b></h5></li>
                                 <li class="collection-item avatar">
                                     <i class="fa fa-hand-pointer circle"></i>
                                     <span class="title"><b>Primeros</b></span>
@@ -153,10 +156,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 $('#pedidosResumen').html(output);
             }
 
-            function eliminaToast(){
-                    alert('Desaparesio');
-            }
-            
+
             //Quitar un plato ya hecho y recuperarlo si hiciera falta
             $('.contendorCocina').on('click', '.quitar', function () {
                 var idCard = this.id;
@@ -167,20 +167,22 @@ if (session_status() == PHP_SESSION_NONE) {
                 //para obtener el id del plato.
                 var arrayAux = idCard.split('-');
 
-                var toastHTML = '<span id="toast">Eliminado ' + pedidosListaPlatos[arrayAux[1]-1][1] + '</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
-                M.toast({html: toastHTML, completeCallback: function(){
+                var toastHTML = '<span id="toast">Eliminado ' + pedidosListaPlatos[arrayAux[1] - 1][1] + '</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
+                M.toast({html: toastHTML, completeCallback: function () {
                         //Quito el último valor de
                         colaPedidos[arrayAux[0]].pop();
                         console.log(colaPedidos);
-                        if(colaPedidos[arrayAux[0]].length <= 3){
+                        if (colaPedidos[arrayAux[0]].length <= 3) {
                             $('#pedido' + colaPedidos[arrayAux[0]][0]).fadeOut(500);
                         }
-                        
-                        //AÑADIR UN UPDATE A LA TABLA PEDIDOS QUE PONGA EL PENDIENTE EN 0
+
+                        //Actualizo en la base de datos el estado del pedido que ya está finalizado.    
+                        $(this).load("pedidoFinalizado.php", {id_pedido: colaPedidos[arrayAux[0]][0]});
+
                     }});
-                    
-                
-                
+
+
+
 
                 $('.recupera1').click(function () {
                     colaPedidos[arrayAux[0]].push('');
@@ -193,27 +195,27 @@ if (session_status() == PHP_SESSION_NONE) {
                     toastInstance.dismiss();
                 });
             });
-            
+
             //Creo una función que cada 5 segundo compruebe que no hay pedidos nuevos en la base de datos 
-            $(function () { 
-                cron(); 
+            $(function () {
+                cron();
                 function cron() {
                     $.ajax({
                         method: "POST",
-                        url: "/actualiza.php",//Dependiente de los directorio de la página 
+                        url: "/actualiza.php", //Dependiente de los directorio de la página 
                         data: {
                             action: 1
                         }
                     }).done(function (msg) {
-                        if(ultimaActualizacion == undefined){
+                        if (ultimaActualizacion == undefined) {
                             ultimaActualizacion = msg;
-                        }else if(ultimaActualizacion != msg){
-                            
-                            ultimaActualizacion = msg;                            
-                            location.reload(); 
+                        } else if (ultimaActualizacion != msg) {
+
+                            ultimaActualizacion = msg;
+                            location.reload();
                         }
                         console.log(msg);
-                        
+
                     });
                 }
                 setInterval(function () {

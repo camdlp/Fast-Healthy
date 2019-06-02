@@ -62,7 +62,7 @@ $('.collapsible-header').click(function () {
             contadorElementos++;
 
         }
-        texto += "<th class='center' style='border-bottom:1px solid #f44336' colspan='2'><a class='waves-effect waves-light btn-flat white red-text'><i class='fa fa-check-circle left'></i>Realizar pedido</a></th></table>";
+        texto += "<th class='center' style='border-bottom:1px solid #f44336' colspan='2'><a id='realizaPedido' class='waves-effect waves-light btn-flat white red-text'><i class='fa fa-check-circle left'></i>Realizar pedido</a></th></table>";
         
     }else {
         M.toast({html: 'La cesta está vacía'});
