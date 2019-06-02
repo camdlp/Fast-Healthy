@@ -6,7 +6,7 @@ include 'misFunciones.php';
 
 $mysqli = conectaBBDD();
 
-$resultadoQuery = $mysqli->query("SELECT * FROM pedidos WHERE pendiente = 1");
+$resultadoQuery = $mysqli->query("SELECT * FROM pedidos WHERE pendiente = 1 ORDER BY fecha");
 
 $numPedidos = $resultadoQuery->num_rows; 
 

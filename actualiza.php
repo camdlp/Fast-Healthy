@@ -7,7 +7,7 @@ if (isset($_POST["action"])) { // Se pasa una acción
         case 1:            
             //Saco el valor del resultado de la query, en este caso la fecha, para 
             //pasarselo a la función de kitchenDesign.php
-            echo date(sacaHora()['UPDATE_TIME']); 
+            echo sacaHora()['UPDATE_TIME']; 
             
             break;
         default:

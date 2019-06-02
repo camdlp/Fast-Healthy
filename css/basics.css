@@ -227,23 +227,25 @@ body{
     /*Evita el scroll en los navegadores*/
     -webkit-transform: translate3d(0, 0, 0);
     transform : translate3d(0, 0, 0);
+    
 }
 
 .pedido{
     position: relative;
     height: 100%;
-    width: 20%;
+    width: 22%;
     font-size: 16px;
     float: left;    
     margin: 1%;
     overflow-y: scroll;
+    
 
 }
 
 .cola{
     position: relative;
     height: 100%;
-    width: 76%;
+    width: 74%;
     float: left;
     margin: 1%;
     overflow-y: scroll;

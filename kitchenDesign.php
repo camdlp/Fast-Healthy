@@ -65,9 +65,9 @@ if (session_status() == PHP_SESSION_NONE) {
 
             //Variables que guardan la cola de los pedidos y el número de pedidos en la cola
             var colaPedidos = <?php echo json_encode($listaPedidos); ?>;
-
+            console.log(colaPedidos);
             var pedidosListaPlatos = <?php echo json_encode($listaPlatos2); ?>;
-
+            
             var ultimaActualizacion;
             //Crea las cartas de los platos de cada pedido para la cola
             creaCardsPlatos();
@@ -79,27 +79,35 @@ if (session_status() == PHP_SESSION_NONE) {
             //a los id's, ya que estos empiezan en 1 mientras que los arrays lo hacen en 0
             function creaCardsPlatos() {
                 var output = '';
-
+                //Variable de color que hará que las cards se alernen en color para distinguir los platos de uno y otro pedido.
+                var color = true;
                 for (var i = 0; i < colaPedidos.length; i++) {
 
                     for (var j = 3; j < colaPedidos[i].length; j++) {
-
-                        contadorId = colaPedidos[i][0] + '-' + pedidosListaPlatos[colaPedidos[i][j] - 1][0];
+                        
+                        contadorId = i + '-' + j;
                         console.log(contadorId);
-                        output += '<div id="cola' + contadorId + '" class="col s6 card1">';
-                        output += '<div id="' + pedidosListaPlatos[colaPedidos[i][j] - 1][0] + '" class="card">\
-                        <div class="card-image">\
-                            <img class="responsive-img"src="img/icon-color.png">\
-                            <span class="card-title black-text">' + pedidosListaPlatos[colaPedidos[i][j] - 1][1] + '</span>\
-                            <a id="' + contadorId + '" class="btn-floating btn-large halfway-fab waves-effect waves-light red quitar"><i class="material-icons">remove</i></a>\
-                        </div>\
-                            <div class="card-content">\
-                                <h6>Ingredientes</p>\
-                            </div>\
-                        </div><br>';
+                        
+                        output += '<div id="cola' + contadorId + '" class="col s6 card1 ">';
+                        
+                        if(color){
+                            output += '<div id="' + pedidosListaPlatos[colaPedidos[i][j] - 1][0] + '" class="card" style="border-top:4px solid #D13832;border-bottom:4px solid #D13832">';
+                        }else output += '<div id="' + pedidosListaPlatos[colaPedidos[i][j] - 1][0] + '" class="card" style="border-top:4px solid #A46F3E;border-bottom:4px solid #A46F3E">';
+                        
+                        output += `<div class="card-image">
+                            <img class="responsive-img"src="img/icon-color.png">
+                            <span class="card-title black-text">`+ pedidosListaPlatos[colaPedidos[i][j] - 1][1] + `</span>
+                            <a id="` + contadorId + `" class="btn-floating btn-large halfway-fab waves-effect waves-light red quitar"><i class="material-icons">remove</i></a>
+                        </div>
+                            <div class="card-content">
+                                <h6>Ingredientes</p>
+                            </div>
+                        </div><br>'`;
                         output += '</div>'
-
+                        
                     }
+                    //Al cambiar de pedido cambio de color
+                    color = !color;
                 }
 
 
@@ -108,11 +116,17 @@ if (session_status() == PHP_SESSION_NONE) {
             }
 
             function creaCardsPedidos() {
-                console.log('Creado');
                 var output = '';
+                //Variable de color que hará que las cards se alernen en color para distinguir los platos de uno y otro pedido.
+                var color = true;
+                console.log('Creado');
+                
                 for (var i = 0; i < colaPedidos.length; i++) {
-                    output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `">  
-                                <li class="collection-header"><h5 class="center">Pedido nº <b>` + colaPedidos[i][0] + `</b></h5></li>
+                    if(color){
+                        output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `" style="border-left:4px solid #D13832">`; 
+                    }else output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `"style="border-left:4px solid #A46F3E">`;  
+                                
+                                output += `<li class="collection-header"><h5 class="center">Pedido nº <b>` + colaPedidos[i][0] + `</b></h5></li>
                                 <li class="collection-item avatar">
                                     <i class="fa fa-hand-pointer circle"></i>
                                     <span class="title"><b>Primeros</b></span>
@@ -133,11 +147,16 @@ if (session_status() == PHP_SESSION_NONE) {
                                     <p id="nombrePostre"></p>
                                 </li>
                             </ul>`;
+                    color = !color;
                 }
 
                 $('#pedidosResumen').html(output);
             }
 
+            function eliminaToast(){
+                    alert('Desaparesio');
+            }
+            
             //Quitar un plato ya hecho y recuperarlo si hiciera falta
             $('.contendorCocina').on('click', '.quitar', function () {
                 var idCard = this.id;
@@ -149,9 +168,19 @@ if (session_status() == PHP_SESSION_NONE) {
                 var arrayAux = idCard.split('-');
 
                 var toastHTML = '<span id="toast">Eliminado ' + pedidosListaPlatos[arrayAux[1] - 1][1] + '</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
-                M.toast({html: toastHTML});
+                M.toast({html: toastHTML, completeCallback: function(){
+                        colaPedidos[arrayAux[0]].pop();
+                        console.log(colaPedidos);
+                        if(colaPedidos[arrayAux[0]].length <= 3){
+                            $('#pedido' + colaPedidos[arrayAux[0]][0]).fadeOut(500);
+                        }
+                    }});
+                    
+                
+                
 
                 $('.recupera1').click(function () {
+                    colaPedidos[arrayAux[0]].push('');
                     $('#cola' + idCard).fadeIn(500);
                     console.log("Recuperado " + idCard);
 
