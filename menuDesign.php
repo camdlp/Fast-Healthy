@@ -99,7 +99,7 @@ Modelo seguido: https://magoz.is/
             <div class="cesta row">
 
                 <ul class="collapsible red white-text">
-                    <li>
+                    <li id="detectorAbierto">
 
                         <div class="collapsible-body" id="cuerpoCesta" >
                             <div id="contenidoCesta">
@@ -159,17 +159,26 @@ Modelo seguido: https://magoz.is/
                 <a onclick="borra()" class="modal-close waves-effect waves-green btn-flat red-text">Sí</a>
             </div>
         </div>
+        <div id="modalPedidoRealizado" class="modal">
+            <div class="modal-content">
+                <h5 class="red-text darken-2">¡Pedido realizado con éxito!</h5>
+                <p>La página se recargará en 3 segundos para que puedas seguir realizando tus pedidos.</p>
+                <p class="red-text darken-2">¡Gracias por tu pedido!</p>
+            </div>
+            
+        </div>
         <!-- FIN MODALES -->
 
     </body>
 </html>
 <!-- CARGO LOS PLATOS DESDE EL SERVIDOR EN CARDS -->
 <script type="text/javascript">
-
+    var menuAbierto = false;
     var numeroPlatos = <?php echo $numPlatos ?>;
 
 //cargo el array php de platos en una variable js
     var listaPlatos = <?php echo json_encode($listaPlatos); ?>;
+
     var output = "";
     for (var i = 0; i < numeroPlatos; i++) {
 
@@ -190,6 +199,7 @@ Modelo seguido: https://magoz.is/
 
 //Pulso el botón de añadir plato
     $('.btn-floating').click(function () {
+        console.log($('#detectorAbierto').hasClass('active'));
         //Sumo 1 plato a la cesta y guardo el id del plato en el array de la cesta
         elementosCesta.push(this.id);
         console.log(this.id);
@@ -214,9 +224,19 @@ Modelo seguido: https://magoz.is/
 
 
             // Quito el toast
-            M.Toast.dismissAll(); 
+            M.Toast.dismissAll();
+            
+            //Si la cesta estaba abierta dibujo directamente su contenido
+            if($('#detectorAbierto').hasClass('active')){
+                dibujaCesta();
+            }
+        
         });
-
+        
+        //Si la cesta estaba abierta dibujo directamente su contenido
+        if($('#detectorAbierto').hasClass('active')){
+            dibujaCesta();
+        }
     });
 
     function calculaPrecio() {
@@ -237,12 +257,33 @@ Modelo seguido: https://magoz.is/
         console.log(elementosCesta);
 
     }
-    
-    
-    $('#contenido').on('click', '#realizaPedido', function() {
+
+    //$('#modalPedidoRealizado').modal({onCloseEnd: window.location.reload()});
+
+    $('#contenido').on('click', '#realizaPedido', function () {
         console.log(elementosCesta);
-        $(this).load('realizaPedido.php', {elementosPedido: elementosCesta});
+
+
+        var txt;
+        var pregunta = confirm("¿Estás seguro de que quieres realizar este pedido?");
+        if (pregunta == true) {
+            $(this).load('realizaPedido.php', {elementosPedido: elementosCesta});
+            //Recargo la página y pongo la varibale modalPedidoRealizado a true para que me muestre el modal
+            //de pedido realizado.
+            $("body").css({'pointer-events':'none'});
+            $('#modalPedidoRealizado').modal('open');
+            setTimeout(function () { // wait 3 seconds and reload
+                window.location.reload(true);
+            }, 3000);
+            
+            //$('#modalPedidoRealizado').modal('open');
+        } else {
+            //Cuando cancelo
+
+        }
     });
+
+
 
 </script>
 

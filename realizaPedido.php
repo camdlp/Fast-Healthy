@@ -17,4 +17,4 @@ for($i = 0; $i < sizeof($elementosPedido); $i++){
     $resultadoQuery = $mysqli->query("INSERT INTO `pedidos_platos` (`id_pedido`, `id_plato`) VALUES ((SELECT MAX(id) FROM pedidos), '".$elementosPedido[$i]."');");
 }
 
-echo '<a class="waves-effect waves-light btn-flat white red-text" href="menu.php"><i class="fas fa-redo left"></i>Vuelve a pedir</a>';
+echo `<i class='fa fa-check-circle left'></i>Realizar pedido`;

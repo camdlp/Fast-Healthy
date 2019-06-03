@@ -26,7 +26,10 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $('.modal').modal();
+     
 });
+
+
 
 /*
  * FIN Inicializaciones materialize
@@ -46,6 +49,14 @@ $(document).ready(function () {
 
 
 $('.collapsible-header').click(function () {
+    //Solamente dibuja cuando la cesta se abre
+    if(!$('#detectorAbierto').hasClass('active')){
+        dibujaCesta(); 
+    }
+    
+});
+
+function dibujaCesta() {
     if (elementosCesta.length > 0) {
 
         var texto = "<table class='centered'><th class='center' colspan='2' style='border-bottom:1px solid white'>Artículos en la Cesta</th>"
@@ -72,10 +83,7 @@ $('.collapsible-header').click(function () {
     $('#contenidoCesta').html(texto);
     //console.log(texto);
     console.log(elementosCesta);
-
-
-
-});
+}
 
 function muestraArticulos() {
     var output = "";
