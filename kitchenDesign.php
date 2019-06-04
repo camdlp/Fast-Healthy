@@ -244,7 +244,7 @@ if (session_status() == PHP_SESSION_NONE) {
                             ultimaActualizacion = msg;
                         } else if (ultimaActualizacion != msg) {
                             //Si hay algún toast activo no se refrescará hasta que no lo haya.
-                            if(document.querySelector('.toast') != null){
+                            if(document.querySelector('.toast') == null){
                                 ultimaActualizacion = msg;
                                 location.reload();
                             }

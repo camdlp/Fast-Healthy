@@ -20,6 +20,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.tabs').tabs();
+    
     //Línea para el cambio de número de la cesta.
     //document.getElementById('numeroCesta').setAttribute('data-count', 12);
 });
@@ -76,7 +77,7 @@ function dibujaCesta() {
         texto += "<th class='center' style='border-bottom:1px solid #f44336' colspan='2'><a id='realizaPedido' class='waves-effect waves-light btn-flat white red-text'><i class='fa fa-check-circle left'></i>Realizar pedido</a></th></table>";
         
     }else {
-        M.toast({html: 'La cesta está vacía'});
+        M.toast({html: 'La cesta está vacía', displayLength:1000});
         var texto = "<h6 style='margin-top: 0'><b>La cesta está vacía</b></h6>"
     }
     

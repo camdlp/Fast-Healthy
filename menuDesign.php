@@ -66,26 +66,26 @@ Modelo seguido: https://magoz.is/
                 <div class="col s12">
                     <h5>Platos del menú</h5>
                     <ul class="tabs">
-                        <li class="tab col s3"><a href="#primeros">Primeros</a></li>
-                        <li class="tab col s3"><a href="#segundos">Segundos</a></li>                    
-                        <li class="tab col s3"><a href="#postres">Postres</a></li>
+                        <li class="tab col s3 red-text"><a href="#primeros" class="red-text">Primeros</a></li>
+                        <li class="tab col s3"><a href="#segundos" class="red-text">Segundos</a></li>                    
+                        <li class="tab col s3"><a href="#postres" class="red-text">Postres</a></li>
                     </ul>
 
 
                     <!-- PRIMEROS -->
-                    <div class="col s12" id="primeros" >
+                    <div class="col s12 red-text" id="primeros" >
 
                     </div>
                     <!-- END PRIMEROS -->
 
                     <!-- SEGUNDOS -->
-                    <div id="segundos" class="col s12">
+                    <div id="segundos" class="col s12 red-text">
 
                     </div>
                     <!-- END SEGUNDOS -->
 
                     <!-- POSTRES -->
-                    <div id="postres" class="col s12">
+                    <div id="postres" class="col s12 red-text">
 
                     </div>
                     <!-- END POSTRES -->
@@ -149,7 +149,7 @@ Modelo seguido: https://magoz.is/
         <!-- END CARGA DE JAVASCRIPTS -->
 
         <!-- MODALES -->
-        <div id="modal1" class="modal">
+        <div id="modal1" class="modal" style="z-index: 9999 !important;">
             <div class="modal-content">
                 <h5 class="red-text darken-2">¿Seguro que quieres eliminar este plato?</h5>
                 <p>Este plato se eliminará de tu cesta.</p>
@@ -175,7 +175,7 @@ Modelo seguido: https://magoz.is/
 <script type="text/javascript">
     var menuAbierto = false;
     var numeroPlatos = <?php echo $numPlatos ?>;
-
+    
 //cargo el array php de platos en una variable js
     var listaPlatos = <?php echo json_encode($listaPlatos); ?>;
 
@@ -221,7 +221,7 @@ Modelo seguido: https://magoz.is/
         //Toast
         //Resto 1 al id porque los ids empiezan en 1 y el array en 0
         var toastHTML = '<span>' + listaPlatos[this.id - 1][1] + ' añadido a la cesta</span><button class="btn-flat toast-action recupera1">Deshacer</button>';
-        M.toast({html: toastHTML});
+        M.toast({html: toastHTML, displayLength:2000});
 
         //Deshacer
         $('.recupera1').click(function () {
