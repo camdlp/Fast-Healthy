@@ -67,13 +67,17 @@ if (session_status() == PHP_SESSION_NONE) {
             var colaPedidos = <?php echo json_encode($listaPedidos); ?>;
 
             var pedidosListaPlatos = <?php echo json_encode($listaPlatos2); ?>;
-            console.log(colaPedidos);
+            
             console.log(pedidosListaPlatos);
             var ultimaActualizacion;
-            //Crea las cartas de los platos de cada pedido para la cola
-            creaCardsPlatos();
-            //Crea las listas con los platos de cada pedido
-            creaCardsPedidos();
+            
+            if (colaPedidos != null) {
+                //Crea las cartas de los platos de cada pedido para la cola
+                creaCardsPlatos();
+                //Crea las listas con los platos de cada pedido
+                creaCardsPedidos();
+            }
+
 
             //Crea una card por cada plato de cada pedido
             //Se le resta uno a 'colaPedidos[i][j]-1' porque los id's están adelantados en 1 
@@ -124,37 +128,60 @@ if (session_status() == PHP_SESSION_NONE) {
                 console.log('Creado');
 
                 for (var i = 0; i < colaPedidos.length; i++) {
+                    console.log(colaPedidos.length);
                     if (color) {
                         output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `" style="border-left:4px solid #D13832">`;
                     } else
                         output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `"style="border-left:4px solid #A46F3E">`;
 
+                    var primeros = '';
+                    var segundos = '';
+                    var terceros = '';
+                    //Agrupo los  platos de cada tipo
+                    for (var j = 3; j < colaPedidos[i].length; j++) {
+                        if (pedidosListaPlatos[colaPedidos[i][j] - 1][3] == 1) {
+                            primeros += '<li>' + pedidosListaPlatos[colaPedidos[i][j] - 1][1] + '</li>';
+                        } else if (pedidosListaPlatos[colaPedidos[i][j] - 1][3] == 2) {
+                            segundos += '<li>' + pedidosListaPlatos[colaPedidos[i][j] - 1][1] + '</li>';
+                        } else {
+                            terceros += '<li>' + pedidosListaPlatos[colaPedidos[i][j] - 1][1] + '</li>';
+                        }
+                    }
+
+
                     output += `<li class="collection-header"><h5 class="center">Pedido nº <b>` + colaPedidos[i][0] + `</b></h5></li>
                                 <li class="collection-item avatar">
                                     <i class="fa fa-hand-pointer circle"></i>
-                                    <span class="title"><b>Primeros</b></span>
-                                    <p id="nombrePrimero"><ol>`;
-                    for (var j = 3; j < colaPedidos[i].length; j++) {
-                        output += '<li>' + pedidosListaPlatos[colaPedidos[i][j] - 1][1] + '</li>';
-                    }
+                                    <span class="title"><b>Primeros</b></span>`;
+                    output += `<p id="nombrePrimero"><ol>` + primeros;
+
                     output += ` </ol></p>
                                 </li>
                                 <li class="collection-item avatar">
                                     <i class="fa fa-hand-peace circle"></i>
                                     <span class="title"><b>Segundos</b></span>
-                                    <p id="nombreSegundo"></p>
+                                    <p id="nombreSegundo"><ol>` + segundos;
+
+                    output += `</ol></p>
                                 </li>
                                 <li class="collection-item avatar">
                                     <i class="fa fa-apple-alt circle"></i>
                                     <span class="title"><b>Postres</b></span>
-                                    <p id="nombrePostre"></p>
+                                    <p id="nombrePostre"><ol>` + terceros;
+
+                    output += `<ol></p>
                                 </li>
                             </ul>`;
+
                     color = !color;
                 }
 
+
                 $('#pedidosResumen').html(output);
             }
+
+
+
 
 
             //Quitar un plato ya hecho y recuperarlo si hiciera falta
@@ -168,16 +195,22 @@ if (session_status() == PHP_SESSION_NONE) {
                 var arrayAux = idCard.split('-');
 
                 var toastHTML = '<span id="toast">Eliminado ' + pedidosListaPlatos[arrayAux[1] - 1][1] + '</span><button class="btn-flat toast-action recupera1">Recuperar</button>';
+                //En cuanto termina el toast, es decir, si no ha recuperado la card
                 M.toast({html: toastHTML, completeCallback: function () {
-                        //Quito el último valor de
+                        //Quito el último valor del array del pedido
                         colaPedidos[arrayAux[0]].pop();
+                        
                         console.log(colaPedidos);
+                        //Pone el plato en preparado en la base de datos
+                        $(this).load("platoTerminado.php", {id_pedido: colaPedidos[arrayAux[0]][0], id_plato: arrayAux[1]});
+                        
                         if (colaPedidos[arrayAux[0]].length <= 3) {
                             $('#pedido' + colaPedidos[arrayAux[0]][0]).fadeOut(500);
+                            //Actualizo en la base de datos el estado del pedido que ya está finalizado.    
+                            $(this).load("pedidoFinalizado.php", {id_pedido: colaPedidos[arrayAux[0]][0]});
                         }
 
-                        //Actualizo en la base de datos el estado del pedido que ya está finalizado.    
-                        $(this).load("pedidoFinalizado.php", {id_pedido: colaPedidos[arrayAux[0]][0]});
+                        
 
                     }});
 
@@ -210,9 +243,12 @@ if (session_status() == PHP_SESSION_NONE) {
                         if (ultimaActualizacion == undefined) {
                             ultimaActualizacion = msg;
                         } else if (ultimaActualizacion != msg) {
-
-                            ultimaActualizacion = msg;
-                            location.reload();
+                            //Si hay algún toast activo no se refrescará hasta que no lo haya.
+                            if(document.querySelector('.toast') != null){
+                                ultimaActualizacion = msg;
+                                location.reload();
+                            }
+                            
                         }
                         console.log(msg);
 

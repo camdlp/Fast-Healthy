@@ -165,7 +165,7 @@ Modelo seguido: https://magoz.is/
                 <p>La página se recargará en 3 segundos para que puedas seguir realizando tus pedidos.</p>
                 <p class="red-text darken-2">¡Gracias por tu pedido!</p>
             </div>
-            
+
         </div>
         <!-- FIN MODALES -->
 
@@ -182,7 +182,7 @@ Modelo seguido: https://magoz.is/
     var output = "";
     for (var i = 0; i < numeroPlatos; i++) {
 
-        output += '<div id="' + listaPlatos[i][0] + '" class="card">\
+        output = '<div id="' + listaPlatos[i][0] + '" class="card">\
                 <div class="card-image">\
                     <img class="responsive-img"src="img/icon-color.png">\
                     <span class="card-title black-text">' + listaPlatos[i][1] + '</span>\
@@ -193,14 +193,19 @@ Modelo seguido: https://magoz.is/
                 </div>\
               </div><br>';
 
+        //Dependiendo del tipo de plato se colocará  la tarjeta en su id correspondiente
+        if (listaPlatos[i][3] == 1) {
+            $('#primeros').append(output);
+        } else if (listaPlatos[i][3] == 2) {
+            $('#segundos').append(output);
+        } else{
+            $('#postres').append(output);
+        }
+            
+
     }
-    
-    if(listaPlatos[3] == 1){
-        $('#segundos').append(output);
-    }else if(listaPlatos[3] == 2){
-        $('#primeros').append(output);
-    }else $('#postres').append(output);
-    
+
+
 
 //Pulso el botón de añadir plato
     $('.btn-floating').click(function () {
@@ -230,16 +235,16 @@ Modelo seguido: https://magoz.is/
 
             // Quito el toast
             M.Toast.dismissAll();
-            
+
             //Si la cesta estaba abierta dibujo directamente su contenido
-            if($('#detectorAbierto').hasClass('active')){
+            if ($('#detectorAbierto').hasClass('active')) {
                 dibujaCesta();
             }
-        
+
         });
-        
+
         //Si la cesta estaba abierta dibujo directamente su contenido
-        if($('#detectorAbierto').hasClass('active')){
+        if ($('#detectorAbierto').hasClass('active')) {
             dibujaCesta();
         }
     });
@@ -273,12 +278,12 @@ Modelo seguido: https://magoz.is/
             $(this).load('realizaPedido.php', {elementosPedido: elementosCesta});
             //Recargo la página y pongo la varibale modalPedidoRealizado a true para que me muestre el modal
             //de pedido realizado.
-            $("body").css({'pointer-events':'none'});
+            $("body").css({'pointer-events': 'none'});
             $('#modalPedidoRealizado').modal('open');
             setTimeout(function () { // wait 3 seconds and reload
                 window.location.reload(true);
             }, 3000);
-            
+
             //$('#modalPedidoRealizado').modal('open');
         } else {
             //Cuando cancelo

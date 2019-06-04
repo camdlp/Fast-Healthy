@@ -20,7 +20,7 @@ for ($i = 0; $i < $numPedidos; $i++) {
 
 
     //Teniendo el cuenta el id de cada pedido pendiente, extraigo los platos de cada uno.    
-    $resultadoQuery1 = $mysqli->query("SELECT * FROM pedidos_platos WHERE id_pedido = " . $listaPedidos[$i][0]);
+    $resultadoQuery1 = $mysqli->query("SELECT * FROM pedidos_platos WHERE id_pedido = " . $listaPedidos[$i][0]. " AND preparado = 0");
     $numPedidos_platos = $resultadoQuery1->num_rows;
 
     //Número por el que vamos del array bidimensional
@@ -45,6 +45,7 @@ for ($i = 0; $i < $numPlatos2; $i++) {
     $listaPlatos2[$i][0] = $platos2['id'];
     $listaPlatos2[$i][1] = $platos2['nombre'];
     $listaPlatos2[$i][2] = $platos2['precio'];
+    $listaPlatos2[$i][3] = $platos2['tipo'];
 }
 
 
