@@ -194,8 +194,13 @@ Modelo seguido: https://magoz.is/
               </div><br>';
 
     }
-
-    $('#primeros').append(output);
+    
+    if(listaPlatos[3] == 1){
+        $('#segundos').append(output);
+    }else if(listaPlatos[3] == 2){
+        $('#primeros').append(output);
+    }else $('#postres').append(output);
+    
 
 //Pulso el botón de añadir plato
     $('.btn-floating').click(function () {
@@ -263,8 +268,6 @@ Modelo seguido: https://magoz.is/
     $('#contenido').on('click', '#realizaPedido', function () {
         console.log(elementosCesta);
 
-
-        var txt;
         var pregunta = confirm("¿Estás seguro de que quieres realizar este pedido?");
         if (pregunta == true) {
             $(this).load('realizaPedido.php', {elementosPedido: elementosCesta});

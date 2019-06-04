@@ -17,6 +17,7 @@ for($i = 0; $i < $numPlatos; $i++){
     $listaPlatos[$i][0] = $platos['id'];
     $listaPlatos[$i][1] = $platos['nombre'];
     $listaPlatos[$i][2] = $platos['precio'];
+    $listaPlatos[$i][3] = $platos['tipo'];
     
 }
 
