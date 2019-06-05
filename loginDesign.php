@@ -67,7 +67,7 @@ if (isset($_SESSION['nombreUsuario'])) {
             <div class="row"><a href="#" class="col s12 center teal-text">Crear cuenta</a></div>
         </form>
 
-        
+
         <!--<a href="#" onclick="openNewTab()">Nueva</a>
         <a href="#" onclick="refreshExistingTab()">Refresh</a> Prueba recargar página desde otra-->
         <!-- END NAVBAR -->
@@ -100,7 +100,8 @@ if (isset($_SESSION['nombreUsuario'])) {
 
 
             });
-                       
+            
+            
 
 
 
