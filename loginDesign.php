@@ -35,7 +35,7 @@ if (isset($_SESSION['nombreUsuario'])) {
         <div class="navbar-login">
             <h4 class="center red-text">Fast & Healthy</h4>
             <div class="row">
-                <a href="loginDesign.php"><img class="col s4 offset-s4 flip-scale-up-hor" src="img/icon-color.png"></a>
+                <a href="loginDesign.php"><img class="col s6 offset-s3 flip-scale-up-hor" src="img/icon-color.png"></a>
             </div>
         </div>      
         <form id="contenidoLogin" class="row">

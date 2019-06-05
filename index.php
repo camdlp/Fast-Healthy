@@ -62,12 +62,12 @@ Logo made by SmashIcons from www.flaticon.com
                         <img src="img/icon-color.png" class="responsive-img" >
                     </div>
                     <a href="#user"><img class="circle white" src="img/icon-color.png" class="responsive-img"></a>
-                    <a href="#name"><span class="grey-text" id="nickSideBar">Acceder</span></a>
-                    <a href="#email"><span class="grey-text" id="emailSideBar">Registrarse</span></a>
+                    <a href="#name"><span class="grey-text" id="nickSideBar"><?php echo $_SESSION['nombreUsuario']; ?></span></a>
+                    
                 </div>
             </li>          
             <li><a href=""><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
-            <li><a class="menu" href="menu.php"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
+            <li><a href="menu.php"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
             <li><a href="logout.php"><i class="material-icons red-text">exit_to_app</i>Salir de la cuenta</a></li>
             
         </ul>

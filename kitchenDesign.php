@@ -41,7 +41,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
             <!-- COLA PEDIDO -->
             <div class="cola">
-                <div class="colaLabel center">PLATOS EN COLA</div>
+                <div class="colaLabel center">PLATOS EN COLA<a class="right"href="logout.php"><i class="material-icons red-text medium">exit_to_app</i></a></div>
 
                 <div id="pedidosCola" class="row">
                     <!-- AQUÍ VAN LOS PLATOS DE CADA PEDIDO -->
@@ -65,10 +65,14 @@ if (session_status() == PHP_SESSION_NONE) {
 
             //Variables que guardan la cola de los pedidos y el número de pedidos en la cola
             var colaPedidos = <?php echo json_encode($listaPedidos); ?>;
-
+            
             var pedidosListaPlatos = <?php echo json_encode($listaPlatos2); ?>;
             
+            //También se guardará una copia con la lista de pedidos para usar más tarde
+            var colaPedidoBackup = <?php echo json_encode($listaPedidos);?>
+            
             console.log(pedidosListaPlatos);
+            console.log(colaPedidos);
             var ultimaActualizacion;
             
             if (colaPedidos != null) {
@@ -93,12 +97,12 @@ if (session_status() == PHP_SESSION_NONE) {
                         contadorId = i + '-' + colaPedidos[i][j];
                         console.log(contadorId);
 
-                        output += '<div id="cola' + contadorId + '" class="col s6 card1 ">';
+                        output += '<div id="cola' + contadorId + '" class="col s6 card1">';
 
                         if (color) {
                             output += '<div id="' + pedidosListaPlatos[colaPedidos[i][j] - 1][0] + '" class="card" style="border-top:4px solid #D13832;border-bottom:4px solid #D13832">';
                         } else
-                            output += '<div id="' + pedidosListaPlatos[colaPedidos[i][j] - 1][0] + '" class="card" style="border-top:4px solid #A46F3E;border-bottom:4px solid #A46F3E">';
+                            output += '<div id="' + pedidosListaPlatos[colaPedidos[i][j] - 1][0] + '" class="card" style="border-top:4px solid #36f468;border-bottom:4px solid #36f468">';
 
                         output += `<div class="card-image">
                             <img class="responsive-img"src="img/icon-color.png">
@@ -108,7 +112,7 @@ if (session_status() == PHP_SESSION_NONE) {
                             <div class="card-content">
                                 <h6>Ingredientes</p>
                             </div>
-                        </div><br>'`;
+                        </div><br>`;
                         output += '</div>'
 
                     }
@@ -132,7 +136,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     if (color) {
                         output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `" style="border-left:4px solid #D13832">`;
                     } else
-                        output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `"style="border-left:4px solid #A46F3E">`;
+                        output += `<ul class="collection" id="pedido` + colaPedidos[i][0] + `"style="border-left:4px solid #36f468">`;
 
                     var primeros = '';
                     var segundos = '';
@@ -204,10 +208,15 @@ if (session_status() == PHP_SESSION_NONE) {
                         //Pone el plato en preparado en la base de datos
                         $(this).load("platoTerminado.php", {id_pedido: colaPedidos[arrayAux[0]][0], id_plato: arrayAux[1]});
                         
+                        //Ya se han preparado todos los platos del pedido
                         if (colaPedidos[arrayAux[0]].length <= 3) {
                             $('#pedido' + colaPedidos[arrayAux[0]][0]).fadeOut(500);
-                            //Actualizo en la base de datos el estado del pedido que ya está finalizado.    
+                            //Actualizo en la base de datos el estado del pedido que ya está finalizado. 
+                               
                             $(this).load("pedidoFinalizado.php", {id_pedido: colaPedidos[arrayAux[0]][0]});
+                            
+                            $(this).load("sms.php", {pedido: colaPedidoBackup[arrayAux[0]], platos: pedidosListaPlatos});
+                            
                         }
 
                         
@@ -220,7 +229,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 $('.recupera1').click(function () {
                     colaPedidos[arrayAux[0]].push('');
                     $('#cola' + idCard).fadeIn(500);
-                    console.log("Recuperado " + idCard);
+                    
 
                     // Quito el toast
                     var toastElement = document.querySelector('.toast');

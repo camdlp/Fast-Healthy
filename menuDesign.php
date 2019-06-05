@@ -33,7 +33,7 @@ Modelo seguido: https://magoz.is/
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons red-text">menu</i></a>
                 <ul class="right hide-on-med-and-down">                    
                     <li><a href="#"><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
-                    <li><a class="menu"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
+                    <li><a href="menu.php"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
                     <li><a href="logout.php"><i class="material-icons red-text">exit_to_app</i>Salir de la cuenta</a></li>
                 </ul>
             </div>
@@ -49,8 +49,7 @@ Modelo seguido: https://magoz.is/
                         <img src="img/icon-color.png" class="responsive-img" >
                     </div>
                     <a href="#user"><img class="circle white" src="img/icon-color.png" class="responsive-img"></a>
-                    <a href="#name"><span class="grey-text" id="nickSideBar">Acceder</span></a>
-                    <a href="#email"><span class="grey-text" id="emailSideBar">Registrarse</span></a>
+                    <a href="#name"><span class="grey-text" id="nickSideBar"><?php echo $_SESSION['nombreUsuario']; ?></span></a>
                 </div>
             </li>          
             <li><a href=""><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
@@ -173,9 +172,13 @@ Modelo seguido: https://magoz.is/
 </html>
 <!-- CARGO LOS PLATOS DESDE EL SERVIDOR EN CARDS -->
 <script type="text/javascript">
-    var menuAbierto = false;
+    //Cuando carga la página siempre lo hace en la parte de arriba.
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+
     var numeroPlatos = <?php echo $numPlatos ?>;
-    
+
 //cargo el array php de platos en una variable js
     var listaPlatos = <?php echo json_encode($listaPlatos); ?>;
 
@@ -198,10 +201,10 @@ Modelo seguido: https://magoz.is/
             $('#primeros').append(output);
         } else if (listaPlatos[i][3] == 2) {
             $('#segundos').append(output);
-        } else{
+        } else {
             $('#postres').append(output);
         }
-            
+
 
     }
 
@@ -221,7 +224,7 @@ Modelo seguido: https://magoz.is/
         //Toast
         //Resto 1 al id porque los ids empiezan en 1 y el array en 0
         var toastHTML = '<span>' + listaPlatos[this.id - 1][1] + ' añadido a la cesta</span><button class="btn-flat toast-action recupera1">Deshacer</button>';
-        M.toast({html: toastHTML, displayLength:2000});
+        M.toast({html: toastHTML, displayLength: 2000});
 
         //Deshacer
         $('.recupera1').click(function () {
@@ -280,8 +283,8 @@ Modelo seguido: https://magoz.is/
             //de pedido realizado.
             $("body").css({'pointer-events': 'none'});
             $('#modalPedidoRealizado').modal('open');
-            setTimeout(function () { // wait 3 seconds and reload
-                window.location.reload(true);
+            setTimeout(function () { // espera 3 segundos y recarga
+                location.href = 'https://carlosabiamer.000webhostapp.com/menu.php';
             }, 3000);
 
             //$('#modalPedidoRealizado').modal('open');
