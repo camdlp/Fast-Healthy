@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+
 var elementosCesta = [];
 var platoSeleccionado;
 /*

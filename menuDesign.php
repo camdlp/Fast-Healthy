@@ -34,7 +34,7 @@ Modelo seguido: https://magoz.is/
                 <ul class="right hide-on-med-and-down">                    
                     <li><a href="#"><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
                     <li><a class="menu"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
-                    <li><a href="#"><i class="material-icons red-text">shopping_cart</i>Cesta</a></li>
+                    <li><a href="logout.php"><i class="material-icons red-text">exit_to_app</i>Salir de la cuenta</a></li>
                 </ul>
             </div>
 
@@ -55,7 +55,7 @@ Modelo seguido: https://magoz.is/
             </li>          
             <li><a href=""><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
             <li><a class="menu"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
-            <li><a href=""><i class="material-icons red-text">shopping_cart</i>Cesta</a></li>
+            <li><a href="logout.php"><i class="material-icons red-text">exit_to_app</i>Salir de la cuenta</a></li>
         </ul>
         <!-- END NAVBAR -->
 
@@ -162,7 +162,7 @@ Modelo seguido: https://magoz.is/
         <div id="modalPedidoRealizado" class="modal">
             <div class="modal-content">
                 <h5 class="red-text darken-2">¡Pedido realizado con éxito!</h5>
-                <p>La página se recargará en 3 segundos para que puedas seguir realizando tus pedidos.</p>
+                <p>La página se recargará en 3 segundos para que puedas seguir comprando si lo deseas.</p>
                 <p class="red-text darken-2">¡Gracias por tu pedido!</p>
             </div>
 

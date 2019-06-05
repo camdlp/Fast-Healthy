@@ -1,8 +1,21 @@
 <?php
 
+//Comprueba si la sesión está empezada.
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
+//Comprueba si la sesión está empezada.
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+//Si la variable de sesión no existe lanza el javascript del login
+if (!isset($_SESSION['nombreUsuario'])) {
+    echo "<script type='text/javascript'>location.href='https://carlosabiamer.000webhostapp.com/loginDesign.php'</script>";
+}else if(!isset($_SESSION['admin'])){
+    echo "<script type='text/javascript'>location.href='https://carlosabiamer.000webhostapp.com/index.php'</script>";
+}
+
 include 'misFunciones.php';
 
 $mysqli = conectaBBDD();
@@ -20,7 +33,7 @@ for ($i = 0; $i < $numPedidos; $i++) {
 
 
     //Teniendo el cuenta el id de cada pedido pendiente, extraigo los platos de cada uno.    
-    $resultadoQuery1 = $mysqli->query("SELECT * FROM pedidos_platos WHERE id_pedido = " . $listaPedidos[$i][0]. " AND preparado = 0");
+    $resultadoQuery1 = $mysqli->query("SELECT * FROM pedidos_platos WHERE id_pedido = " . $listaPedidos[$i][0] . " AND preparado = 0");
     $numPedidos_platos = $resultadoQuery1->num_rows;
 
     //Número por el que vamos del array bidimensional

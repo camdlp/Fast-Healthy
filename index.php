@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <?php
+//Comprueba si la sesión está empezada.
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+}
+
+//Comprueba si la sesión está empezada.
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+//Si la variable de sesión no existe lanza el javascript del login
+if (!isset($_SESSION['nombreUsuario'])) {
+    echo "<script type='text/javascript'>location.href='https://carlosabiamer.000webhostapp.com/loginDesign.php'</script>";
 }
 ?>
 <!--
@@ -26,7 +36,7 @@ Logo made by SmashIcons from www.flaticon.com
         <title>Fast & Healthy®</title>
 
     </head>
-    <body>
+    <body>      
 
         <!-- NAVBAR -->
         <nav class="navbar-material transparent no-shadows">
@@ -36,7 +46,8 @@ Logo made by SmashIcons from www.flaticon.com
                 <ul class="right hide-on-med-and-down">                    
                     <li><a href="#"><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
                     <li><a class="menu" href="menu.php"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
-                    <li><a href="#"><i class="material-icons red-text">shopping_cart</i>Cesta</a></li>
+                    <li><a href="logout.php"><i class="material-icons red-text">exit_to_app</i>Salir de la cuenta</a></li>
+                    
                 </ul>
             </div>
 
@@ -57,7 +68,8 @@ Logo made by SmashIcons from www.flaticon.com
             </li>          
             <li><a href=""><i class="material-icons red-text">account_circle</i>Cuenta</a></li>
             <li><a class="menu" href="menu.php"><i class="material-icons red-text">restaurant_menu</i>Menú</a></li>
-            <li><a href=""><i class="material-icons red-text">shopping_cart</i>Cesta</a></li>
+            <li><a href="logout.php"><i class="material-icons red-text">exit_to_app</i>Salir de la cuenta</a></li>
+            
         </ul>
         <!-- END NAVBAR -->
 
@@ -107,7 +119,8 @@ Logo made by SmashIcons from www.flaticon.com
         <script src="js/materialize.js" type="text/javascript"></script>
         <script src="js/basics.js" type="text/javascript"></script>
         <script src="js/init.js" type="text/javascript"></script>
+        <script type="text/javascript">$('html').addClass('fondo');</script>
         <!-- END CARGA DE JAVASCRIPTS -->
     </body>
-    
+
 </html>
